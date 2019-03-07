@@ -13,11 +13,18 @@ But I kinda love rainy day =P
 **This is a bold text.**
 
 # I am Heading1
+## I am Heading2
+### I am Heading3
+#### I am Heading4
+##### I am Heading5
+###### I am Heading6
 ~~~
 *I am italic*
 ~~~
 *I am italic*
-
+~~~
+***Bold and italic***
+~~~
 ***Bold and italic***
 ~~~
 > I think therefore I am.
