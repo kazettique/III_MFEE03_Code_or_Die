@@ -1,12 +1,4 @@
-# hello-world
-the first repository
-
-Hi there,
-
-It's a wonderful day, rainy day though.
-But I kinda love rainy day =P
-
-# Let's practice how to write markdown!!!
+# Let's practice how to write markdown!!! {#top}
 ~~~
 **This is a bold text.**
 ~~~
@@ -141,4 +133,41 @@ This is the *[Markdown Guide](https://www.markdownguide.org)*.
 - \-    minus sign <br>
 - \.    dot <br>
 - \!    exclamation mark <br>
+
+#### Heading IDs
+~~~
+### My Great Heading {#custom-id}
+~~~
+
+#### Linking to Heading IDs
+~~~
+[Heading IDs](#heading-ids)
+~~~
+[To top](#top)
+
+#### Strikethrough
+~~~
+~~The world is flat.~~ We now know that the world is round.
+~~~
+~~The world is flat.~~ We now know that the world is round.
+
+#### Tasks List
+~~~
+- [x] Write the press release
+- [ ] Update the website
+- [ ] Contact the media
+~~~
+- [x] Write the press release
+- [ ] Update the website
+- [ ] Contact the media
+
+
+#### Automatic URL Linking
+http://example.com
+
+#### Disabling Automatic URL Linking
+~~~
+`http://www.example.com`
+~~~
+`http://www.example.com`
 
