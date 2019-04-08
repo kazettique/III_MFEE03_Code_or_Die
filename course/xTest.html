@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<div class="container">
+    <p>Select a new car from the list.</p>
+
+    <input id="checkNumber" value="" onkeyup="formatChecker(this.id, checkNumber)">
+    <br>
+    <input id="checkDate" value="" onkeyup="InfoDisplay(this.id, 'demo', checkDate);" maxlength="10">
+    <br>
+    <small id="hint" class="form-text text-muted" style="color:red;"></small>
+    <p id="demo"></p>
+    <input id="checkToday" value="" onkeyup="InfoDisplay(this.id, 'info', checkToday);">
+    <p id="info"></p>
+
+    <!-- 選取檔案之後，即時顯示檔案名稱於<input>的value裏面 -->
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Upload</span>
+        </div>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputGroupFile01"
+                   onchange="document.getElementById('show').value = window.URL.createObjectURL(this.files[0])">
+            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+        </div>
+        <input type="text" id="show">
+    </div>
+</div>
+
+
+<script>
+    function formatChecker(inputId, checkFunction) {
+        let inputValue = document.getElementById(inputId).value;
+        let checkedValue = checkFunction(inputValue);
+        document.getElementById(inputId).value = checkedValue;
+    }
+
+    function InfoDisplay(inputId, hintId, checkFunction) {
+        let inputValue = document.getElementById(inputId).value;
+        let result = checkFunction(inputValue);
+        if (result === true) {
+            document.getElementById(hintId).innerHTML = 'correct format!';
+        } else {
+            document.getElementById(hintId).innerHTML = 'please enter correct format of date: YYYY-MM-DD';
+        }
+    }
+
+    function checkNumber(inputValue) {
+        let regEx = /[^0-9]/g;
+        let checkedValue = inputValue.replace(regEx, "");
+        // console.log(checkedValue);
+        return checkedValue;
+    }
+
+    function checkDate(inputValue) {
+        // let regEx = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/g;
+        // let regEx = /^09\d{2}\-?\d{3}\-?\d{3}$/;
+        // let move_reg = /[^0-9]/g;
+        // let checkedValue = inputValue.replace(move_reg, "");
+        let regEx = /^([0-9]\d{3})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
+        let result = regEx.test(inputValue);
+        return result;
+    }
+
+    function checkToday(inputDate) {
+        let todaysDate = new Date();
+        todaysDate = todaysDate.setHours(0, 0, 0, 0);
+        inputDate = inputDate.setHours(0, 0, 0, 0);
+        if (todaysDate) {
+
+        } else {
+
+        }
+        alert(inputDate.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0));
+    }
+
+
+</script>
+
+</body>
+</html>
+
+

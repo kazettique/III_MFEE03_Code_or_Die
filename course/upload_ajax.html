@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!-- 摘要：上傳圖檔，並即時顯示在當前頁面 -->
+
+<img id="myimg" src="" alt="" width="200px">
+<br>
+<input type="file" name="my_file" id="my_file">
+<script>
+    const myimg = document.querySelector('#myimg');
+    const my_file = document.querySelector('#my_file');
+
+    // 只要my_file裡面的檔案名稱有所改變，就會觸發addEventListener(因為'change')
+    my_file.addEventListener('change', event=>{
+        // 顯示event物件
+        console.log(event);
+        // 顯示input標籤
+        console.log(event.target);
+        // fd means FormData
+        const fd = new FormData();
+
+        // my_file.files[0]: 指定到第一個檔案
+        fd.append('my_file', my_file.files[0]);
+
+        // 像api發出資料請求
+        fetch('upload_ajax_api.php', {
+            method: 'POST',
+            body: fd
+        })
+            .then(response=>response.json())
+            .then(obj=>{
+                console.log(obj);
+                // 設定src的值，將圖片路徑匯入<img id="myimg">標籤
+                myimg.setAttribute('src', 'uploads/' + obj.filename);
+                // myimg.setAttribute('src', `uploads/${obj.filename}`);
+            }); // obj['filename']
+        //{ 'filename': 'test123',
+        //  'info' : 'blablalbla'}
+    })
+</script>
+</body>
+</html>

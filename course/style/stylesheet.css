@@ -1,0 +1,24 @@
+.form-group small {
+    color: red !important;
+}
+
+img {
+    /*width: 80%;*/
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 0.5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+}
+
+.card {
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+/*#contentPage {*/
+    /*display: block;*/
+    /*padding-top: 4rem;*/
+/*}*/
