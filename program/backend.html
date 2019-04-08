@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="resources/bootstrap_customised/css/bootstrap.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Noto+Sans+KR|Noto+Sans+TC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="resources/css/backend_main.css">
+    <title>Route</title>
+</head>
+<body>
+    <div id="wrap" class="d-flex justify-content-between">
+        <div class="p-0 sidebar-wrap transition">
+            <div class="sidebar-menu transition">
+                <div class="bar bar1 transition"></div>
+                <div class="bar bar2 transition"></div>
+                <div class="bar bar3 transition"></div>
+            </div>
+            <div class="card border-0 sidebar">
+                <div class="sidebar-logo d-flex justify-content-center ">
+                    <img src="images/route-page-title.svg" class="img-fluid"></img>
+                </div>
+                <div class="d-flex flex-column align-items-center position-relative mt-5 mb-3">
+                    <p class="bgc-green badge position-absolute profile-tag fs-1 color-white t-0">普通管理員</p>
+                    <a href="" class="bgc-testing profile-pic my-2"><img src="images/螢幕快照 2018-09-11 下午6.58.14.png" alt=""></a>
+                    <p class="my-1 font-weight-bold fs-1-3 d-flex align-items-center">
+                        <span class="pl-2">Admin</span>
+                        <a href="" class="ml-2 fs-1"><i class="fas fa-edit"></i></a>
+                    </p>
+                </div>
+                <div class="links">
+                    <a href="" class="d-flex align-items-center transition"><i class="material-icons">group</i></svg>概況</a>
+                    <a href="" class="d-flex align-items-center transition"><i class="material-icons">group</i></svg>會員管理</a>
+                    <a href="" class="d-flex align-items-center transition"><i class="material-icons">school</i>課程管理</a>
+                    <a href="" class="d-flex align-items-center transition"><i class="material-icons">today</i>活動管理</a>
+                    <a href="" class="d-flex align-items-center transition"><i class="material-icons">place</i>路線管理</a>
+                    <a href="" class="d-flex align-items-center transition"><i class="material-icons">playlist_add</i>商品管理</a>
+                    <a href="" class="d-flex align-items-center transition"><i class="material-icons">edit</i>文章管理</a>
+                </div>
+                <a class="log-out d-flex align-items-center transition">
+                    <i class="material-icons mr-2 pt-1 fs-1-3">power_settings_new</i>
+                    <span>登出</span>
+                </a>
+
+            </div>
+            <div class="h-100 sidebar-arrows">
+                <div class="p-4 sidebar-right fs-1-5"><i class="fas fa-caret-right"></i></div>
+                <div class="p-4 sidebar-left fs-1-5 display-none"><i class="fas fa-caret-left"></i></div>
+            </div>
+
+        </div>
+
+
+        <div class="row py-3 d-flex flex-column main-content">
+            <h2 class="pageNameRight t-0 py-3 w-100 my-3" >路線管理</h2>
+            <form class="searchbar form-inline my-sm-2 ">
+                <input class="form-control mr-sm-2 bgc-gray" type="search" placeholder="請輸入關鍵字" aria-label="Search">
+                <button class="btn bgc-green color-white mr-2 mr-sm-4 my-2 search-submit" type="submit">搜索</button>
+                <button type="button" class="btn bgc-white border-1-green ">進階搜尋</button>
+            </form>
+            <div class="w-100 d-flex justify-content-between mb-3 mt-sm-0">
+                <div></div>
+                <button type="button" class=" btn bgc-green px-4 px-sm-5 color-white font-weight-bold">新增路線</button>
+            </div>
+
+
+            <div class="w-100 d-flex my-sm-3 setting-wrap position-relative">
+                <select name="" id="" class="form-control border-1-green fa order">
+                    <option value=0 class="fa-caret-down">按新增時間 &#xf0d7;</option>
+                    <option value=1 class="fa">按新增時間 &#xf0d8;</option>
+                </select>
+                <div class="pagination-wrap d-flex">
+                    <p class="text-left mb-0 mr-3">第1頁/共3頁</p>
+                    <ul class="pagination justify-content-center mr-5 mb-0">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1"><i class="fas fa-caret-left"></i></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">10</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#"><i class="fas fa-caret-right"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <select name="" id="" class="form-control border-1-red perPage">
+                    <option value="">每頁顯示10條路線</option>
+                    <option value="">每頁顯示5條路線</option>
+                    <option value="">每頁顯示15條路線</option>
+                    <option value="">每頁顯示20條路線</option>
+                </select> 
+            </div>
+            
+            <div class="where-you-put-everything">
+    
+    
+    
+    
+    
+            </div>
+        </div>
+    </div>
+    
+    <script src="resources/js/underscore.js"></script>
+    <script src="resources/js/jquery-3.3.1.js"></script>
+    <script src="resources/bootstrap_customised/js/bootstrap.bundle.js"></script>
+    <script>      
+        $('.sidebar-right').click(function(){
+            $('.sidebar').toggleClass('off')
+            $('.sidebar-left').removeClass('display-none');
+            $(this).addClass('display-none');
+        });
+        $('.sidebar-left').click(function(){
+            $('.sidebar').toggleClass('off')
+            $('.sidebar-right').removeClass('display-none');
+            $(this).addClass('display-none');
+        })
+        $('.sidebar-menu').click(function () {
+            event.stopPropagation();
+            $(this).toggleClass('active')
+            $('.sidebar').toggleClass('offv')
+            $('.sidebar-wrap').toggleClass('offv')
+        })
+    </script>
+</body>
+</html>

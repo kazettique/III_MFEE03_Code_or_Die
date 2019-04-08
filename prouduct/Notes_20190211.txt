@@ -1,0 +1,38 @@
+﻿前端(client)技術：透過瀏覽器來執行(html parser、JS parser)的技術就叫做前端技術
+ex HTML CSS JavaScript
+跟使用者互動有關的
+JavaScript:根據使用者的操作行為，動態的改變樣式(CSS)及內容(HTML)
+
+
+後端(server)技術：在Server執行的就叫做後端技術
+ex php、Java(jsp、servlet)、c#(asp.net)、python.....js
+資料存取、商業邏輯程式
+
+Ajax:XMLHttpRequest(old) -> Fetch(new)
+jQuery(JavaScript函式庫)
+React(JavaScript框架)
+
+Real-time Application
+
+
+HTML -> CSS -> JavaScript 
+HTTP：瀏覽器與伺服器之間溝通的標準
+ Request
+ Response
+ Cache
+ Content-Type
+ Status:2xx 3xx 4xx 5xx
+ UserAgent
+ Cookie
+ referrer
+ Request Method(verbs)：GET、POST、PUT、DELETE
+
+前端工程師要能夠呼叫Restful api
+流程如下：
+透過ajax將資料包裝成json格式傳給restful api
+restful api將結果包裝成json回傳給ajax
+ajax收到結果後，將json資料讀出顯示在網頁上(DOM)
+
+php + mysql  -> 基本資料管理
+
+react + restful api -> 商業流程
