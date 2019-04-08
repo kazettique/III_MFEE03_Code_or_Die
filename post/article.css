@@ -1,0 +1,83 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+}
+.dashboard {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-content: flex-start;
+}
+#mid {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+#left {
+  width: 10%;
+  background: white;
+}
+#right {
+  width: 10%;
+  background: white;
+}
+
+#no-data {
+  text-align: center;
+  font-size: 3rem;
+  color: red;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 2rem;
+}
+.control a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.control a:hover {
+  background-color: lightblue;
+}
+
+.card {
+  margin: 2% 2%;
+}
+.card-img {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card img {
+  max-width: 100%;
+}
+.card-edit {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.card-edit > a,
+.card-edit > a:visited {
+  height: 30px;
+  line-height: 30px;
+  text-decoration: none;
+  color: black;
+}
+.searchbar {
+  display: flex;
+  justify-content: center;
+}
+.pages {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,198 @@
+.wrapper {
+  width: 100%;
+}
+
+#content {
+  /* background: lightblue; */
+  position: relative;
+  width: 75%;
+  height: 94.4vh;
+}
+
+#content #news-content {
+  padding: 1%;
+  width: 65%;
+  /* background: red; */
+  height: 94.4vh;
+}
+
+#content #news-content #article-info {
+  height: 10%;
+  padding: 2%;
+  /* background: lightblue; */
+}
+
+#content #news-content #article-body {
+  background: white;
+  height: 80%;
+  padding: 2%;
+
+  overflow: auto;
+}
+
+#content #news-content #control {
+  height: 10%;
+  /* background: black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#content #comments {
+  width: 35%;
+  padding: 1%;
+  /* background: blue; */
+  height: 94.4vh;
+}
+#comments-head {
+  padding: 2%;
+  height: 10%;
+}
+
+#comments-body {
+  background: white;
+  height: 90%;
+
+  overflow: auto;
+}
+
+#content #comments #comments-body li {
+  margin: 10px;
+}
+
+#sidebar {
+  /* background: yellow; */
+  width: 25%;
+  padding: 2%;
+}
+
+#searchbar {
+  height: 10%;
+}
+
+#article-data {
+  height: 80%;
+}
+
+.dataheader {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
+}
+
+#article-data .article-datas {
+  margin: 3px 0;
+}
+
+#article-data .article-datas.active {
+  border: 2px solid red;
+}
+
+.list-group-item {
+  position: relative;
+}
+
+.checkbtn {
+  position: absolute;
+  right: 10px;
+}
+
+.disablebtn {
+  position: absolute;
+  right: 10px;
+}
+
+#pagination {
+  width: 100%;
+  margin-top: 20px;
+  height: 10%;
+  display: flex;
+  display: flex;
+  justify-content: space-between;
+  font-size: 2rem;
+}
+
+#pagination .arrow {
+  width: 15%;
+}
+#pagination #page-mid {
+  width: 70%;
+}
+#pagination #page-mid #pagiMid {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.backdropEdit {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: -100vh;
+}
+
+.backdropPost {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: -100vh;
+  z-index: 300;
+}
+
+.forEdit {
+  width: 80%;
+  height: 95vh;
+  background: white;
+  padding: 2%;
+  margin-top: 1%;
+  opacity: 1;
+}
+
+.ck-editor__editable {
+  height: 60vh;
+  overflow: auto;
+}
+
+.noshow {
+  background: black;
+}
+
+#ModalBack {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -100vh;
+  z-index: 500;
+}
+
+#Modal {
+  width: 400px;
+  height: 400px;
+  border: 1px solid black;
+  padding: 2%;
+  z-index: 1000;
+  background: white;
+}
+
+#Modal #Modal-hint {
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#Modal #Modal-btn {
+  height: 20%;
+  display: inline-block;
+}
