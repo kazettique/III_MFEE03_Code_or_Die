@@ -359,6 +359,27 @@ a:hover{
     font-weight: 900;
 }
 
+.main-table thead tr th{
+    border-bottom:0;
+    font-weight:900;
+}
+.main-table tbody tr th{
+    height: 5vw;
+    width:8vw;
+    overflow:hidden;
+    border:2px solid white;
+}
+
+.main-table tbody tr th img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-table tbody tr td{
+   border:2px solid white;
+   text-align: left;
+}
 @media (max-width:1200px){
     /* .add-new-wrap{
         width:100%;
