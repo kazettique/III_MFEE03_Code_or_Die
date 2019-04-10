@@ -141,9 +141,7 @@ a:hover{
         transform: rotate(45deg) translate(-4px, -5px) ;
 }
 
-#logout:hover{
-    cursor:pointer;
-}
+
 
 .sidebar-logo{
     margin-top:1rem;
@@ -170,7 +168,7 @@ a:hover{
 
 .profile-tag{
     padding: 0.2rem 0.4rem 0.3rem 0.4rem;
-    transform:translateX(-50%);
+    left:-3.5rem;
 }
 
 .links{

@@ -16,21 +16,21 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Noto+Sans+KR|Noto+Sans+TC" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="resources/css/utilities.css">
-    <link rel="stylesheet" href="resources/css/login-screen.css">
+    <link rel="stylesheet" href="../resources/css/utilities.css">
+    <link rel="stylesheet" href="../resources/css/login-screen.css">
 </head>
   <body>
       
     <div class="wrap d-flex justify-content-between">
         <div>
-            <div class="title-wrap"><img src="resources/images/maintitle1.svg" alt=""></div>
+            <div class="title-wrap"><img src="../resources/images/maintitle1.svg" alt=""></div>
 
-            <div class="wheel-img-wrap"><img src="resources/images/wheel-img-svg.svg" alt=""></div>
+            <div class="wheel-img-wrap"><img src="../resources/images/wheel-img-svg.svg" alt=""></div>
 
             <div class="the-wheel-wrap d-flex flex-column justify-content-between align-items-start">
-                <div class="the-wrap"><img src="resources/images/the wheel-the.svg" class="img-fluid" alt=""></div>
+                <div class="the-wrap"><img src="../resources/images/the wheel-the.svg" class="img-fluid" alt=""></div>
                 <p>管理者後台</p>
-                <div class="wheel-wrap"><img src="resources/images/the wheel-wheel.svg" alt=""></div>
+                <div class="wheel-wrap"><img src="../resources/images/the wheel-wheel.svg" alt=""></div>
             </div>
 
             <div class="bgc-red tag-decor"></div>
@@ -51,7 +51,7 @@
         <div id="hint">
         <div class="subwrap d-flex align-items-center">
             <div class="side-text-wrap">
-                <img src="resources/images/side-text-the-wheel.svg" alt="" class="img-fluid">
+                <img src="../resources/images/side-text-the-wheel.svg" alt="" class="img-fluid">
             </div>
         </div>
 
@@ -87,7 +87,7 @@
                             showConfirmButton: false
                         })
                         
-                        setTimeout(()=> {window.location = "/sidebar/__nav.php"}, 1000);
+                        setTimeout(()=> {window.location = "../sidebar/__nav.php"}, 1000);
                         
                     } else {
                         $("#hint").text("帳號或密碼錯誤!");
