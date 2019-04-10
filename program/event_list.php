@@ -23,7 +23,7 @@
     <div class="d-flex align-items-end">
         <div class="d-flex flex-column title-big">
             <div class="title-img">
-                <div><img src="resources/images/activity-page-title.svg" alt="Route Management" ></div>
+                <div><img src="/../resources/images/activity-page-title.svg" alt="Route Management" ></div>
                 
             </div>
             <h2 class="pageNameRight t-0 mb-3" >活動管理</h2> 
