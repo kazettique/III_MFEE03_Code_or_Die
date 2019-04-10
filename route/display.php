@@ -1,6 +1,6 @@
 <?php
 include __DIR__ .'/__html_head.php';
-include __DIR__ . '/../sidebar/__nav.php';
+include  '../sidebar/__nav.php';
 $page_name='home';
 ?>
 <style>
@@ -51,7 +51,7 @@ $page_name='home';
             <div class="w-100 d-flex justify-content-between mb-3 align-items-end sub-wrap1">
                 <div class="d-flex align-items-end">
                     <div class="d-flex flex-column title-big">
-                        <div class="title-img"><div><img src="resources/images/route-page-title2.svg" alt="Route Management" ></div></div>
+                        <div class="title-img"><div><img src="../resources/images/route-page-title2.svg" alt="Route Management" ></div></div>
                         <h2 class="pageNameRight t-0 mb-3" >路線管理</h2> 
                     </div>
                 

@@ -1,10 +1,10 @@
 <?php include __DIR__ . "/../login/cred.php"; ?>
-<link rel="stylesheet" href="/sidebar/resources/bootstrap_customised/css/bootstrap.css">
+<link rel="stylesheet" href="../resources/bootstrap_customised/css/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Noto+Sans+KR|Noto+Sans+TC" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="/sidebar/resources/css/backend_main.css">
+    <link rel="stylesheet" href="../resources/css/backend_main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 <style>
     body{
@@ -21,11 +21,11 @@
         </div>
         <div class="card border-0 sidebar">
             <div class="sidebar-logo d-flex justify-content-center ">
-                <img src="/sidebar/resources/images/route-page-title2.svg" class="img-fluid"></img>
+                <img src="../resources/images/route-page-title2.svg" class="img-fluid"></img>
             </div>
             <div class="d-flex flex-column align-items-center position-relative mt-5 mb-3">
                 <p class="bgc-green badge position-absolute profile-tag fs-1 color-white t-0">普通管理員</p>
-                <a href="" class="bgc-testing profile-pic my-2"><img src="/sidebar/resources/images/螢幕快照 2018-09-11 下午6.58.14.png" alt=""></a>
+                <a href="" class="bgc-testing profile-pic my-2"><img src="../resources/images/螢幕快照 2018-09-11 下午6.58.14.png" alt=""></a>
                 <p class="my-1 font-weight-bold fs-1-3 d-flex align-items-center">
                     <span class="pl-2"><?= $adminName ?></span>
                     <a href="" class="ml-2 fs-1"><i class="fas fa-edit"></i></a>

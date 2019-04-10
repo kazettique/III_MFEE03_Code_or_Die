@@ -12,5 +12,5 @@ if (isset($_SESSION['username'])) {
   $stmt = $pdo->query($sql);
 } else {
 
-  header("Location: http://localhost/login/login.php");
+  header("Location: http://localhost/III_MFEE03_Code_or_Die/login/login.php");
 }
