@@ -1,5 +1,5 @@
 ## Color Code 色票
-1. 沉穩灰:  #eeeded
+1. 沉穩灰: #eeeded
 2. 活力紅: #e14040
 3. 翡翠綠: #2addc7
 4. ...

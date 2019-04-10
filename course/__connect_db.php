@@ -2,19 +2,17 @@
 // Connect to database
 
 // For test use
-// $db_host = 'localhost';
+$db_host = 'localhost';
+$db_name = 'the_wheel';
+$db_user = 'root';
+$db_pass = '';
+
+// For project use
+// Ivy's Server
+//$db_host = '192.168.27.7';
 // $db_name = 'the_wheel';
-// $db_user = 'root';
-// $db_pass = '';
-
-
- // For project use
- // Ivy's Server
-$db_host = '192.168.27.7';
- $db_name = 'the_wheel';
- $db_user = 'woody';
- $db_pass = '6211';
-
+// $db_user = 'woody';
+// $db_pass = '6211';
 
 // 這裡使用雙引號
 // mysql固定使用雙引號

@@ -32,9 +32,7 @@
                                         <input id="c_fundGoal" type="text" class="form-control" name="c_fundGoal"
                                                placeholder="NT$"
                                                value="" required>
-                                        <div class="input-group-append">
-                                            <!--                                            <span class="input-group-text" id="">NTD</span>-->
-                                        </div>
+                                        <div class="input-group-append"></div>
                                         <small id="c_fundGoalHelp" class="form-text text-muted"></small>
                                     </div>
                                     <div class="input-group">

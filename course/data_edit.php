@@ -14,10 +14,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 ?>
 <?php include __DIR__ . '/__html_head.php'; ?>
-    <!-- 暫用navbar(自製) -->
-<?php //include __DIR__ . '/__navBar.php'; ?>
-    <!-- 共用navbar -->
-    <?php include __DIR__.'/../sidebar/__nav.php'; ?>
+<?php include __DIR__ . '/__navBar.php'; ?>
     <!-- 導入通用資料表格 -->
 <?php include __DIR__ . '/__html_form.php'; ?>
 
