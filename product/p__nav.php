@@ -39,8 +39,8 @@
 
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script> -->
     <script>    
         // (function(){
         //     $('.sidebar').toggleClass('off')

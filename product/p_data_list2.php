@@ -5,7 +5,7 @@
 
 <?php include __DIR__."/p__html_head.php"; ?>
 
-<?php include __DIR__.'/../sidebar/__nav.php'; ?>
+<?php include __DIR__.'/p__nav.php'; ?>
 
             <div class="row py-3 d-flex flex-column main-content">
 
@@ -15,13 +15,16 @@
             <div class="title-img"><div><img src="resources/images/product-page-title.svg" alt="Route Management" ></div></div>
             <h2 class="pageNameRight t-0 mb-3" >商品管理</h2> 
         </div>
-    
-        <form class="searchbar form-inline my-sm-2 ">
-            <input class="form-control mr-sm-2 bgc-gray" type="search" placeholder="請輸入關鍵字" aria-label="Search" name="search" id="search">
-            <button class="btn bgc-green color-white mr-2 mr-sm-4 my-2 search-submit search_btn" type="submit">搜索</button>
-            <label for="type" class="p-1" style="font-weight: 900;color:#000">部件分類</label>
-                <select id="sel_genre2" name="sel_genre2" class="form-control bgc-white border-1-green">
-                                        <option selected value="">全部搜尋</option>
+        <!-- <form  class="form-inline my-sm-2 "> -->
+        <div class="form-inline my-sm-2">
+            <input class="form-control  mr-sm-2 bgc-gray" type="search" placeholder="請輸入關鍵字" aria-label="Search" name="search" id="search">
+
+            <button class="btn bgc-green  color-white mr-2 mr-sm-4 my-2 search-submit search_btn" >搜索</button>
+
+            <!-- <label for="type" class="p-1 " style="font-weight: 900;color:#000">部件分類</label> -->
+                <select id="sel_genre2" name="sel_genre2" class="form-control bgc-white border-1-green bike-type">
+                                        <option selected value="">部件搜尋</option>
+                                        <option  value="">全部搜尋</option>
                                         <option value="全車">全車</option>
                                         <option value="車架">車架</option>
                                         <option value="握把.龍頭">握把.龍頭</option>
@@ -32,10 +35,11 @@
                                         <option value="輪胎">輪胎</option>
                                         <option value="踏板">踏板</option>
                 </select>
-        </form>
+                </div>
+                <!-- </form> -->
     </div>
     <div class="d-flex align-items-center my-md-3 add-new-wrap">
-        <button type="button" class="btn bgc-green  px-lg-5 color-white font-weight-bold add-new"><a class="nav-link color-white " href="p__insert2.php" style="padding:0;">新增商品</a></button>
+        <button type="button" class="btn bgc-green  px-lg-5 color-white font-weight-bold add-new"><a class="nav-link " href="p__insert2.php" style="padding:0;">新增商品</a></button>
     </div>
 </div>
 
@@ -61,10 +65,10 @@
         </ul>
     </div>
     <select name="" id="" class="form-control border-1-red perPage pages_present">
-        <option value="5">每頁顯示5條路線</option>
-        <option value="10">每頁顯示10條路線</option>
-        <option value="15">每頁顯示15條路線</option>
-        <option value="20">每頁顯示20條路線</option>
+        <option value="5">每頁顯示5項商品</option>
+        <option value="10">每頁顯示10項商品</option>
+        <option value="15">每頁顯示15項商品</option>
+        <option value="20">每頁顯示20項商品</option>
     </select> 
 </div>
 
@@ -110,7 +114,7 @@
 
 
 <script>
-    let sel_genre2 = document.querySelector('#sel_genre2')
+    let sel_genre2 = document.querySelector('.bike-type');
     let search_btn = document.querySelector('.search_btn');
     let searchbar = document.querySelector('#search');
     let genre2 = document.querySelector("#genre2");
@@ -118,8 +122,8 @@
     let perPage = pages_present.value;
     var num_pagi = "";
     var page_act = "";
-    let    sel_genre =sel_genre2.value
-    let    keyword = searchbar.value;
+    let    sel_genre ="";
+    
     // let tbody = document.querySelector('#data_body')
     console.log(sel_genre2);
     
@@ -158,18 +162,18 @@ const ul_pagi = document.querySelector('.pagination');
 const data_body = document.querySelector('#data_body');
 
 const tr_str = `<tr>
-                        <td class="des" style="vertical-align: middle;"><%= p_sid %></td>
-                        <td class="des" ><a data-fancybox data-caption="<%=p_name%>" href="./uploads/<%= p_photo%>"><img src="./uploads/<%= p_photo%>" style="height: 100px ; max-width:100%;background-size:cover" alt=""></a></td>
-                        <td class="des" style="vertical-align: middle";><%= p_name %><a href="p_read.php?sid=<%= p_sid  %>" class="text-info"> <i  class="fas fa-info-circle"></i></a></td>
-                        <td class="des" style="vertical-align: middle;"><%= quantity %></td>
-                        <td class="des" style="vertical-align: middle;"><%= p_description %></td>
-                        <td class="des" style="vertical-align: middle;"><%= p_price %></td>
-                        <td class="des" style="vertical-align: middle;"><%= p_genre %></td>
-                        <td class="des" style="vertical-align: middle;"><%= p_genre2 %></td>
-                        <td class="des" style="vertical-align: middle;"><%= p_brand %></td>
-                        <td class="des" style="vertical-align: middle;"><%= p_color %></td>
-                        <td class="des" style="vertical-align: middle;"><%= p_size %></td>
-                        <td class="des" style="vertical-align: middle;">
+                        <td ><%= p_sid %></td>
+                        <td><a data-fancybox data-caption="<%=p_name%>" href="./uploads/<%= p_photo%>"><img src="./uploads/<%= p_photo%>" style="height: 100px ; max-width:100%;background-size:cover" alt=""></a></td>
+                        <td><%= p_name %><a href="p_read.php?sid=<%= p_sid  %>" class="text-info"> <i  class="fas fa-info-circle"></i></a></td>
+                        <td><%= quantity %></td>
+                        <td><%= p_description %></td>
+                        <td><%= p_price %></td>
+                        <td><%= p_genre %></td>
+                        <td><%= p_genre2 %></td>
+                        <td><%= p_brand %></td>
+                        <td><%= p_color %></td>
+                        <td><%= p_size %></td>
+                        <td>
                         <a href="javascript:edit_it(<%= p_sid %>)"><i class="fas fa-edit"></i></a>/
                         <a href="javascript:delete_it(<%= p_sid %>)">
                         <i class="fas fa-minus-circle"></i></a>
@@ -187,47 +191,46 @@ const pagi_str = ` <li class="btn-light page-num page-item <%= active %>">
    
 
 
-
+   //每頁幾筆
  const mySelChange = () => {
         perPage = pages_present.value;
         console.log(perPage);
         myHashChange();
     }
-    $("#search_btn").click(function(){
-        let sel_genre = sel_genre2.value;
-        myHashChange()
-    })
+    // $("#search_btn").click(function(){
+    //     let sel_genre = sel_genre2.value;
+    //     // myHashChange()
+    // })
+
+
+     //腳踏車種類
     function selGenre2() {
-       let sel_genre = sel_genre2.value;
+       sel_genre = sel_genre2.value;
        let search_btn = document.querySelector('.search_btn');
         console.log(sel_genre);
         //  search_btn.addEventListener('click',  myHashChange);
-         myHashChange()
+        //  myHashChange()
        
          
-    }
+     }
+let keyword="";
 
 
 const myHashChange = ()=>{
-    let searchbar = document.querySelector('#search');
-    let sel_genre2 = document.querySelector('#sel_genre2')   
-    let sel_genre = sel_genre2.value;
-    sel_genre2 = sel_genre2.value
-    keyword = searchbar.value;
+  
+    keyword=searchbar.value;
+
+    // sel_genre2 = document.querySelector('#sel_genre2')   
+    sel_genre = sel_genre2.value;
+   
     let h = location.hash.slice(1);
  
-
-    
-  
- 
-
-    
         page = parseInt(h);
         if (isNaN(page)) {
             page = 1;
         }
          ul_pagi.innerHTML+= page;
-        fetch('p__search2.php?page=' + page + '&perPage=' + perPage + '&sel_genre2=' + sel_genre2 + '&keyword=' + keyword)
+        fetch('p__search2.php?page=' + page + '&perPage=' + perPage + '&sel_genre2=' + sel_genre + '&keyword=' + keyword)
             .then(res => {
                 console.log(res);
                 return res.json();
