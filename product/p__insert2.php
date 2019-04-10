@@ -87,8 +87,8 @@ $page_name = '_insert2';
                         
                         
                         <input type="hidden" name="checkme" value="check123"> 
-                        <div class="form-group">
-                            <label for="photo">商品照片</label>
+                        <div class="form-group" style="text-align: start;">
+                            <label for="photo" >商品照片</label>
                             <input type="file" class="form-control-file" id="p_photo" name="p_photo" placeholder="" accept="image/*">
                             <small id="photoHelp" class="form-text text-muted"></small>
                         </div>
