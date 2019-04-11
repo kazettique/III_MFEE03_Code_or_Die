@@ -5,7 +5,7 @@
 
 <?php include __DIR__."/p__html_head.php"; ?>
 
-<?php include __DIR__.' ../sidebar/__nav.php'; ?>
+<?php include __DIR__."/../sidebar/__nav.php"; ?>
 
             <div class="row py-3 d-flex flex-column main-content">
 
