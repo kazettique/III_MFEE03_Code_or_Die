@@ -1,6 +1,12 @@
-## COD 公告
-#### 關於git的commit訊息（2019/04/10） 
-##### Git推送的commit訊息，前面加上英文字母代號(英文名字第一個字母)，方便辨認，例如：
+## COD 公告(不時更新)
+
+#### 如何寫一個 Git Commit Message (2019/04/11)
+關於如何撰寫git的commit訊息，有需要可以參考一下
+- 中文翻譯: [如何寫一個 Git Commit Message](https://blog.louie.lu/2017/03/21/如何寫一個-git-commit-message/)
+- 英文(原文): [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/)
+
+#### 關於git的commit訊息 (2019/04/10) 
+##### Git推送的commit訊息，前面加上英文字母代號 (英文名字第一個字母)，方便辨認，例如：
 1. W: 表格更新
 2. V: navbar樣式修改
 3. 以此類推
