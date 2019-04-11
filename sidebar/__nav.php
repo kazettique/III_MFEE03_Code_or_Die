@@ -1,17 +1,15 @@
 <?php include __DIR__ . "/../login/cred.php"; ?>
 <link rel="stylesheet" href="../resources/bootstrap_customised/css/bootstrap.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Noto+Sans+KR|Noto+Sans+TC" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../resources/css/utilities.css">
-    <link rel="stylesheet" href="../resources/css/backend_main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Noto+Sans+KR|Noto+Sans+TC" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="../resources/css/utilities.css">
+<link rel="stylesheet" href="../resources/css/backend_main.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 <style>
-    body{
+    body {
         background: url("./back.png") center center no-repeat;
     }
-
 </style>
 <div id="wrap" class="d-flex justify-content-between">
     <div class="p-0 sidebar-wrap transition">
@@ -34,12 +32,12 @@
             </div>
             <div class="links">
                 <a href="" class="d-flex align-items-center transition"><i class="material-icons">home</i></svg>概況</a>
-                <a href="/member/data_list2FOR0408.php" class="d-flex align-items-center transition"><i class="material-icons">group</i></svg>會員管理</a>
-                <a href="/course/data_list.php" class="d-flex align-items-center transition"><i class="material-icons">school</i>課程管理</a>
-                <a href="/program-test/event_list.php" class="d-flex align-items-center transition"><i class="material-icons">today</i>活動管理</a>
-                <a href="/route/display.php" class="d-flex align-items-center transition"><i class="material-icons">place</i>路線管理</a>
-                <a href="/prouduct/p_data_list2.php" class="d-flex align-items-center transition"><i class="material-icons">playlist_add</i>商品管理</a>
-                <a href="/post/listtest.php" class="d-flex align-items-center transition"><i class="material-icons">edit</i>文章管理</a>
+                <a href="/III_MFEE03_Code_or_Die/member/data_list2FOR0408.php" class="d-flex align-items-center transition"><i class="material-icons">group</i></svg>會員管理</a>
+                <a href="/III_MFEE03_Code_or_Die/course/data_list.php" class="d-flex align-items-center transition"><i class="material-icons">school</i>課程管理</a>
+                <a href="/III_MFEE03_Code_or_Die/program-test/event_list.php" class="d-flex align-items-center transition"><i class="material-icons">today</i>活動管理</a>
+                <a href="/III_MFEE03_Code_or_Die/route/display.php" class="d-flex align-items-center transition"><i class="material-icons">place</i>路線管理</a>
+                <a href="/III_MFEE03_Code_or_Die/prouduct/p_data_list2.php" class="d-flex align-items-center transition"><i class="material-icons">playlist_add</i>商品管理</a>
+                <a href="/III_MFEE03_Code_or_Die/post/listtest.php" class="d-flex align-items-center transition"><i class="material-icons">edit</i>文章管理</a>
             </div>
             <a class="log-out d-flex align-items-center transition" id="logout">
                 <i class="material-icons mr-2 pt-1 fs-1-3">power_settings_new</i>
@@ -59,7 +57,7 @@
     <script src="../resources/bootstrap_customised/js/bootstrap.bundle.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script> -->
-    <script>    
+    <script>
         // (function(){
         //     $('.sidebar').toggleClass('off')
         //     $('.sidebar-left').removeClass('display-none');
@@ -69,28 +67,36 @@
         //     $('.sidebar-right').removeClass('display-none');
         //     $('.sidebar-left').addClass('display-none');
         // })  
-        (function(){
-            $("#sright").css({"color": "red", "font-size": "4rem"});
-            setTimeout(()=>{$("#sright").css({"color": "black", "font-size": "3rem"})},2000);
+        (function() {
+            $("#sright").css({
+                "color": "red",
+                "font-size": "4rem"
+            });
+            setTimeout(() => {
+                $("#sright").css({
+                    "color": "black",
+                    "font-size": "3rem"
+                })
+            }, 2000);
         })();
         $(".fa-caret-right").addClass('animated');
-        $('.sidebar-right').click(function(){
+        $('.sidebar-right').click(function() {
             $('.sidebar').toggleClass('off')
             $('.sidebar-left').removeClass('display-none');
             $(this).addClass('display-none');
         });
-        $('.sidebar-left').click(function(){
+        $('.sidebar-left').click(function() {
             $('.sidebar').toggleClass('off')
             $('.sidebar-right').removeClass('display-none');
             $(this).addClass('display-none');
         })
-        $('.sidebar-menu').click(function () {
+        $('.sidebar-menu').click(function() {
             event.stopPropagation();
             $(this).toggleClass('active')
             $('.sidebar').toggleClass('offv')
             $('.sidebar-wrap').toggleClass('offv')
         })
-        $("#logout").click(function(){
+        $("#logout").click(function() {
             Swal.fire({
                 title: '確認要登出?',
                 text: "",
@@ -99,21 +105,21 @@
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: '登出'
-                }).then((result) => {
+            }).then((result) => {
                 if (result.value) {
                     Swal.fire(
-                    '登出成功',
-                    '請按確認鍵繼續',
-                    'success'
+                        '登出成功',
+                        '請按確認鍵繼續',
+                        'success'
                     ).then((result) => {
                         if (result.value) {
-                        fetch("../login/__logout_api.php").then(res => {
-                        location.reload()})
-                    }});
-                    
+                            fetch("../login/__logout_api.php").then(res => {
+                                location.reload()
+                            })
+                        }
+                    });
+
                 }
             })
         })
-    
     </script>
-    
