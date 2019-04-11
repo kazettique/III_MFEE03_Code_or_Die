@@ -74,7 +74,8 @@
                 fetch("__login_api.php", {
                     method: "post",
                     headers: new Headers({
-                        'Content-Type': 'application/x-www-form-urlencoded'
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Accept':'application/x-www-form-urlencoded'
                     }),
                     body: `username=${name}&password=${pw}`
                 }).then(res => res.json()).then(json => {
