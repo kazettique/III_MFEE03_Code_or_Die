@@ -1,5 +1,5 @@
 <?php
-$db_host='192.168.27.7';
+$db_host='localhost';
 $db_name='the_wheel';
 $db_user='ivi';
 $db_password='admin1123';
