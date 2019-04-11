@@ -4,7 +4,7 @@ $page_name = 'data_list'
 ?>
 
 <?php include __DIR__ . '/__html_head.php';  ?>
-<?php include __DIR__.'/../sidebar/__nav.php'; ?>
+<?php include __DIR__ . '/../sidebar/__nav.php'; ?>
 <style>
     .card-img {
         /* height:100%; */
@@ -29,6 +29,15 @@ $page_name = 'data_list'
     table tbody img {
         width: 100px !important;
         height: 100px;
+    }
+
+    #swal2-content {
+        text-align: left !important;
+        padding-left: 8%;
+    }
+
+    .swal2-popup .swal2-styled.swal2-confirm {
+        background-color: #2addc7;
     }
 </style>
 
@@ -116,7 +125,7 @@ $page_name = 'data_list'
                 <!-- <div class="col-lg-10 mx-auto"> -->
 
 
-                    <!-- <div class="col-7 mx-auto d-flex mt-4 justify-content-around">
+                <!-- <div class="col-7 mx-auto d-flex mt-4 justify-content-around">
                         <select name="sel_city" id="sel_city" class="col-2 bgc-white border-1-green btn">
                             <option value="">選擇城市</option>
                             <option value="基隆市">基隆市</option>
@@ -145,151 +154,151 @@ $page_name = 'data_list'
  -->
 
 
-                        <!-- <input type="text" class="form-control col-8 mx-auto bgc-gray" id="m_search" name="m_search" placeholder="請輸入關鍵字" value=""> -->
+                <!-- <input type="text" class="form-control col-8 mx-auto bgc-gray" id="m_search" name="m_search" placeholder="請輸入關鍵字" value=""> -->
 
-                        <!-- <input class="form-control mr-sm-2 bgc-gray" type="search" placeholder="請輸入關鍵字" aria-label="Search"> -->
-
-
+                <!-- <input class="form-control mr-sm-2 bgc-gray" type="search" placeholder="請輸入關鍵字" aria-label="Search"> -->
 
 
 
 
-                        <!-- <button type="submit" class="btn d-flex mx-auto  search_btn bgc-green color-white">搜索</button> -->
-                        <!-- <button class="btn bgc-green color-white mr-2 mr-sm-4 my-2 search-submit" type="submit">搜索</button> -->
+
+
+                <!-- <button type="submit" class="btn d-flex mx-auto  search_btn bgc-green color-white">搜索</button> -->
+                <!-- <button class="btn bgc-green color-white mr-2 mr-sm-4 my-2 search-submit" type="submit">搜索</button> -->
 
 
 
-                    <!-- </div> -->
+                <!-- </div> -->
 
 
-                    <select class="pages_present mx-auto d-block mt-2 mb-4">
+                <select class="pages_present mx-auto d-block mt-2 mb-4">
 
-                        <option value="20">每頁20筆資料</option>
-                        <option value="40">每頁40筆資料</option>
-                        <option value="60">每頁60筆資料</option>
+                    <option value="20">每頁20筆資料</option>
+                    <option value="40">每頁40筆資料</option>
+                    <option value="60">每頁60筆資料</option>
 
-                    </select>
-
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-
-                    <table class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">個人圖片</th>
-
-                                <th scope="col">排序
-                                    <div id="sort">
-                                        <i class="fas fa-sort-up" style="display:none"></i>
-                                        <i class="fas fa-sort-down" style="display:block"></i>
-                                    </div>
-                                </th>
-                                <th scope="col">姓名</th>
-                                <th scope="col">手機</th>
-                                <th scope="col">EMAIL</th>
-                                <th scope="col">地址</th>
-
-                                <th scope="col">帳號狀態</th>
-                                <th scope="col">修改</th>
-                                <th scope="col">評價</th>
-                                <th scope="col">刪除帳號</th>
-                            </tr>
-                        </thead>
-                        <tbody id="table_body">
-                            <?php
-
-
-                            ?>
-
-                        </tbody>
-                    </table>
-
-                </div>
+                </select>
 
             </div>
+        </div>
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="pagination pagination-sm justify-content-center"><?php
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">個人圖片</th>
+
+                            <th scope="col">排序
+                                <div id="sort">
+                                    <i class="fas fa-sort-up" style="display:none"></i>
+                                    <i class="fas fa-sort-down" style="display:block"></i>
+                                </div>
+                            </th>
+                            <th scope="col">姓名</th>
+                            <th scope="col">手機</th>
+                            <th scope="col">EMAIL</th>
+                            <th scope="col">地址</th>
+                            <th scope="col">帳號狀態</th>
+                            <th scope="col">查看</th>
+                            <th scope="col">修改</th>
+                            <th scope="col">評價</th>
+                            <th scope="col">刪除帳號</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_body">
+                        <?php
 
 
+                        ?>
 
+                    </tbody>
+                </table>
 
-
-
-
-
-
-
-
-
-
-                                                                                ?>
-
-
-                    </ul>
-                </div>
             </div>
 
         </div>
 
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="pagination pagination-sm justify-content-center"><?php
 
 
 
 
-        <script>
-            let page = 1;
-            let ul_pagi = document.querySelector('.pagination');
-
-            let sel_city = document.querySelector('#sel_city');
-
-
-            let searchbar = document.querySelector('#m_search');
-            let search_btn = document.querySelector('.search_btn');
-
-            let pages_present = document.querySelector('.pages_present');
-            const data_body = document.querySelector('#data_body');
-            let tbody = document.querySelector('#table_body');
 
 
 
-            var sortway = "DESC"
 
-            var switcher = 0;
-            let sort = document.querySelector('#sort');
 
-            sort.onclick = function() {
-                var tag = sort.querySelectorAll('i');
-                console.log(tag);
 
-                switcher = switcher == 0 ? 1 : 0;
-                console.log(switcher);
 
-                for (var i = 0; i < tag.length; i++) {
-                    if (switcher == 0) {
-                        tag[0].style.display = 'none';
-                        tag[1].style.display = 'block';
-                        sortway = "DESC";
-                    } else {
-                        tag[1].style.display = 'none';
-                        tag[0].style.display = 'block';
-                        sortway = "ASC";
-                    }
+
+
+                                                                            ?>
+
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <script>
+        let page = 1;
+        let ul_pagi = document.querySelector('.pagination');
+
+        let sel_city = document.querySelector('#sel_city');
+
+
+        let searchbar = document.querySelector('#m_search');
+        let search_btn = document.querySelector('.search_btn');
+
+        let pages_present = document.querySelector('.pages_present');
+        const data_body = document.querySelector('#data_body');
+        let tbody = document.querySelector('#table_body');
+
+
+
+        var sortway = "DESC"
+
+        var switcher = 0;
+        let sort = document.querySelector('#sort');
+
+        sort.onclick = function() {
+            var tag = sort.querySelectorAll('i');
+            console.log(tag);
+
+            switcher = switcher == 0 ? 1 : 0;
+            console.log(switcher);
+
+            for (var i = 0; i < tag.length; i++) {
+                if (switcher == 0) {
+                    tag[0].style.display = 'none';
+                    tag[1].style.display = 'block';
+                    sortway = "DESC";
+                } else {
+                    tag[1].style.display = 'none';
+                    tag[0].style.display = 'block';
+                    sortway = "ASC";
                 }
-                console.log(sortway);
-                myHashChange();
             }
+            console.log(sortway);
+            myHashChange();
+        }
 
-            if (location.hash.slice(location.hash.indexOf("sortway") + 8, location.hash.indexOf("sortway") + 11) == "ASC") {
-                sortway = "ASC";
-            }
+        if (location.hash.slice(location.hash.indexOf("sortway") + 8, location.hash.indexOf("sortway") + 11) == "ASC") {
+            sortway = "ASC";
+        }
 
 
-            const tr_str = `
-                     <tr>
+        const tr_str = `
+        <tr>
                      <td><img src="<%= m_photo ==''?'https://images2.imgbox.com/b0/c3/sQxunS2i_o.png':m_photo %>" class="card-img" alt="..."> </td>
 
                        
@@ -302,6 +311,10 @@ $page_name = 'data_list'
                       
 
                         <td><span>帳號狀態:<a href="javascript: switch_it(<%= m_sid %>)" class="text-warning"> <%=m_active =="正常" ?'<i class="fas fa-check"></i>':'<i class="fas fa-ban"></i>停權' %> </a></td>
+
+                          <td>
+                            <a href="javascript: read_it('<%= m_photo ==''?'https://images2.imgbox.com/b0/c3/sQxunS2i_o.png':m_photo %>','<%= m_name  %>','<%= m_mobile %>','<%= m_email %>','<%= m_birthday %>','<%= m_city %>','<%= m_town %>','<%= m_address %>')"><i class="fas fa-eye"></i></a>
+                        </td>
 
                         <td>
                             <a href="data_editFOR0408.php?sid=<%= m_sid %>"><i class="fas fa-edit"></i></a>
@@ -318,261 +331,281 @@ $page_name = 'data_list'
 
 
 
-            const tr_func = _.template(tr_str);
-            //underscore語法
-            const pagi_str = ` 
+        const tr_func = _.template(tr_str);
+        //underscore語法
+        const pagi_str = ` 
                     <li class="btn-light page-num page-item <%= active %>">
                     <a class=" page-link " href="#<%= page %>"> <%= page %> </a>
                     </li>`;
 
-            const pagi_func = _.template(pagi_str);
-            //underscore語法
+        const pagi_func = _.template(pagi_str);
+        //underscore語法
 
 
 
 
-            for (var i = 0; i < pages_present.length; i++) {
-                if (pages_present[i].value == location.hash.slice(location.hash.indexOf("perPage") + 8, location.hash.indexOf("perPage") + 10)) {
-                    pages_present[i].selected = true;
-                    console.log(pages_present[i].selected);
-                }
-            };
-
-            for (var i = 0; i < sel_city.length; i++) {
-                if (sel_city[i].value == decodeURIComponent(location.hash.slice(location.hash.indexOf("city") + 5, location.hash.indexOf("city") + 32))) {
-                    sel_city[i].selected = true;
-                    console.log(sel_city[i].selected);
-
-                }
-            };
-
-
-
-
-
-
-
-            //宣告變數:下拉式選單裡面的值
-            let perPage = pages_present.value;
-
-            let city = sel_city.value
-
-
-            let keyword = searchbar.value;
-
-
-
-            if (location.hash.indexOf("keyword") !== -1) {
-                searchbar.value = decodeURIComponent(location.hash.slice(location.hash.indexOf("keyword") + 8))
+        for (var i = 0; i < pages_present.length; i++) {
+            if (pages_present[i].value == location.hash.slice(location.hash.indexOf("perPage") + 8, location.hash.indexOf("perPage") + 10)) {
+                pages_present[i].selected = true;
+                console.log(pages_present[i].selected);
             }
+        };
 
-
-
-            //宣告變數:拿到所有頁數
-            var num_pagi = "";
-            //宣告變數:當前頁面
-            var page_act = "";
-
-
-            //變更每頁筆數      
-            const mySelChange = () => {
-                perPage = pages_present.value;
-                console.log(perPage);
-                myHashChange();
+        for (var i = 0; i < sel_city.length; i++) {
+            if (sel_city[i].value == decodeURIComponent(location.hash.slice(location.hash.indexOf("city") + 5, location.hash.indexOf("city") + 32))) {
+                sel_city[i].selected = true;
+                console.log(sel_city[i].selected);
 
             }
+        };
 
-            function selCity() {
-                city = sel_city.value;
-                console.log(city);
+
+
+
+
+
+
+        //宣告變數:下拉式選單裡面的值
+        let perPage = pages_present.value;
+
+        let city = sel_city.value
+
+
+        let keyword = searchbar.value;
+
+
+
+        if (location.hash.indexOf("keyword") !== -1) {
+            searchbar.value = decodeURIComponent(location.hash.slice(location.hash.indexOf("keyword") + 8))
+        }
+
+
+
+        //宣告變數:拿到所有頁數
+        var num_pagi = "";
+        //宣告變數:當前頁面
+        var page_act = "";
+
+
+        //變更每頁筆數      
+        const mySelChange = () => {
+            perPage = pages_present.value;
+            console.log(perPage);
+            myHashChange();
+
+        }
+
+        function selCity() {
+            city = sel_city.value;
+            console.log(city);
+        }
+
+        const myHashChange = () => {
+            city = sel_city.value;
+
+            keyword = searchbar.value;
+
+            let h = location.hash.slice(1);
+            page = parseInt(h);
+
+            if (isNaN(page)) {
+                page = 1;
             }
 
-            const myHashChange = () => {
-                city = sel_city.value;
+            // ul_pagi.innerHTML+= page;
 
-                keyword = searchbar.value;
+            fetch('data_list_api2.php?page=' + page + '&perPage=' + perPage + '&city=' + city + '&keyword=' + keyword + '&sortway=' + sortway)
+                .then(res => {
+                    console.log(res);
+                    return res.json();
+                })
+                .then(json => {
+                    ori_data = json;
+                    console.log(ori_data);
 
-                let h = location.hash.slice(1);
-                page = parseInt(h);
+                    let str = '';
 
-                if (isNaN(page)) {
-                    page = 1;
-                }
-
-                // ul_pagi.innerHTML+= page;
-
-                fetch('data_list_api2.php?page=' + page + '&perPage=' + perPage + '&city=' + city + '&keyword=' + keyword + '&sortway=' + sortway)
-                    .then(res => {
-                        console.log(res);
-                        return res.json();
-                    })
-                    .then(json => {
-                        ori_data = json;
-                        console.log(ori_data);
-
-                        let str = '';
-
-                        for (let s in ori_data.data) {
-                            str += tr_func(ori_data.data[s]);
-                        }
-                        tbody.innerHTML = str;
+                    for (let s in ori_data.data) {
+                        str += tr_func(ori_data.data[s]);
+                    }
+                    tbody.innerHTML = str;
 
 
-                        str = '';
-                        for (let i = 1; i <= ori_data.totalPages; i++) {
-                            let active = ori_data.page === i ? 'active' : '';
+                    str = '';
+                    for (let i = 1; i <= ori_data.totalPages; i++) {
+                        let active = ori_data.page === i ? 'active' : '';
 
-                            str += pagi_func({
-                                active: active,
-                                page: i
-                            });
+                        str += pagi_func({
+                            active: active,
+                            page: i
+                        });
 
-                        }
+                    }
 
 
-                        str = `<li class="page-item ${ori_data.page==1 ? 'disabled' : ''}">
+                    str = `<li class="page-item ${ori_data.page==1 ? 'disabled' : ''}">
                             <a class="page-link" href="#${ori_data.page-1}">&lt;</a>
                         </li>` + str;
 
-                        str = `<li class="page-item ${ori_data.page==1 ? 'disabled' : '' }">
+                    str = `<li class="page-item ${ori_data.page==1 ? 'disabled' : '' }">
                             <a class="page-link" href="#1"><i class="fas fa-angle-double-left"></i></a>
                         </li>` + str;
 
-                        str += `<li class="page-item ${ori_data.page==ori_data.totalPages ? 'disabled' : ''} ">
+                    str += `<li class="page-item ${ori_data.page==ori_data.totalPages ? 'disabled' : ''} ">
                             <a class="page-link" href="#${ori_data.page+1}">&gt;</a>
                             </li>`;
 
-                        str += `<li class="page-item ${ori_data.page==ori_data.totalPages ? 'disabled' : '' }">
+                    str += `<li class="page-item ${ori_data.page==ori_data.totalPages ? 'disabled' : '' }">
                         <a class="page-link" href="#${ori_data.totalPages}"><i class="fas fa-angle-double-right"></i></a>
                         </li>`;
-                        ul_pagi.innerHTML = str;
+                    ul_pagi.innerHTML = str;
 
-                        num_pagi = document.querySelectorAll('.page-num');
-                        page_act = ul_pagi.querySelector('.active');
+                    num_pagi = document.querySelectorAll('.page-num');
+                    page_act = ul_pagi.querySelector('.active');
 
-                        num_pagi
+                    num_pagi
 
-                        for (var v = 0; v < num_pagi.length; v++) {
-                            if (parseInt(page_act.innerText) + 3 < parseInt(num_pagi[v].innerText)) {
-                                num_pagi[v].style.display = "none";
-                            }
-
-                            if (parseInt(page_act.innerText) - 3 > parseInt(num_pagi[v].innerText)) {
-                                num_pagi[v].style.display = "none";
-
-
-                            }
+                    for (var v = 0; v < num_pagi.length; v++) {
+                        if (parseInt(page_act.innerText) + 3 < parseInt(num_pagi[v].innerText)) {
+                            num_pagi[v].style.display = "none";
                         }
 
+                        if (parseInt(page_act.innerText) - 3 > parseInt(num_pagi[v].innerText)) {
+                            num_pagi[v].style.display = "none";
+
+
+                        }
+                    }
 
 
 
-                    });
-            };
 
-
-
-
-
-            // function search(){
-            //   let form = new FormData(document.form1);
-            //   console.log(form);
-
-            //   fetch('data_search_api.php', {
-            //                 method: 'POST',
-            //                 body: form
-            //             })
-            //             .then(res=>{
-            //                 console.log(res);
-            //                 return res.json();
-            //             })
-            //             .then(json=>{
-            //                 ori_data = json;
-            //                 console.log(ori_data);
-
-            //                 let str = '';
-
-            //                 for(let s in ori_data.data){
-            //                     str += tr_func(ori_data.data[s]);
-            //                 }
-            //                 tbody.innerHTML = str;
-
-
-            //                 str = '';
-            //                 for(let i=1; i<=ori_data.totalPages; i++){
-            //                     let active = ori_data.page === i ? 'active' : '';
-
-            //                     str += pagi_func({
-            //                         active: active,
-            //                         page: i
-            //                     });
-            //                 }
-            //                 str=`<li class="page-item ${ori_data.page}=1 ? 'disabled' : '' ?>">
-            //                         <a class="page-link" href="?page=#${ori_data.page-1}">&lt;</a>
-            //                     </li>`+str;
-
-            //                 str+=`<li class="page-item ${ori_data.page}=ori_data.totalPages ? 'disabled' : '' ?>">
-            //                         <a class="page-link" href="?page=#${ori_data.page+1}">&gt;</a>
-            //                         </li>`;
-            //                 ul_pagi.innerHTML = str;
-
-            //             });
-
-            //             return false;
-            // }
+                });
+        };
 
 
 
 
 
-            //   事件監聽
-            window.addEventListener('hashchange', myHashChange); //切換hash
+        // function search(){
+        //   let form = new FormData(document.form1);
+        //   console.log(form);
 
-            pages_present.addEventListener('change', mySelChange); //下拉式選單
+        //   fetch('data_search_api.php', {
+        //                 method: 'POST',
+        //                 body: form
+        //             })
+        //             .then(res=>{
+        //                 console.log(res);
+        //                 return res.json();
+        //             })
+        //             .then(json=>{
+        //                 ori_data = json;
+        //                 console.log(ori_data);
 
-            sel_city.addEventListener('change', selCity);
+        //                 let str = '';
 
-            search_btn.addEventListener('click', myHashChange);
+        //                 for(let s in ori_data.data){
+        //                     str += tr_func(ori_data.data[s]);
+        //                 }
+        //                 tbody.innerHTML = str;
 
+
+        //                 str = '';
+        //                 for(let i=1; i<=ori_data.totalPages; i++){
+        //                     let active = ori_data.page === i ? 'active' : '';
+
+        //                     str += pagi_func({
+        //                         active: active,
+        //                         page: i
+        //                     });
+        //                 }
+        //                 str=`<li class="page-item ${ori_data.page}=1 ? 'disabled' : '' ?>">
+        //                         <a class="page-link" href="?page=#${ori_data.page-1}">&lt;</a>
+        //                     </li>`+str;
+
+        //                 str+=`<li class="page-item ${ori_data.page}=ori_data.totalPages ? 'disabled' : '' ?>">
+        //                         <a class="page-link" href="?page=#${ori_data.page+1}">&gt;</a>
+        //                         </li>`;
+        //                 ul_pagi.innerHTML = str;
+
+        //             });
+
+        //             return false;
+        // }
+
+
+
+
+
+        //   事件監聽
+        window.addEventListener('hashchange', myHashChange); //切換hash
+
+        pages_present.addEventListener('change', mySelChange); //下拉式選單
+
+        sel_city.addEventListener('change', selCity);
+
+        search_btn.addEventListener('click', myHashChange);
+
+        myHashChange();
+
+        // for(var i=0;i< pages_present.length;i++){
+        //    pages_present[i].selected;
+        // }
+
+        function switch_it(sid) {
+            location.href = 'data_switch.php?sid=' + sid + '&page=' + page + '&perPage=' + perPage + '&city=' + city + '&sortway=' + sortway + '&keyword=' + keyword;
             myHashChange();
+        }
 
-            // for(var i=0;i< pages_present.length;i++){
-            //    pages_present[i].selected;
-            // }
+        function score_it(sid) {
+            // location.href =;
+        }
 
-            function switch_it(sid) {
-                location.href = 'data_switch.php?sid=' + sid + '&page=' + page + '&perPage=' + perPage + '&city=' + city + '&sortway=' + sortway + '&keyword=' + keyword;
-                myHashChange();
-            }
-
-            function score_it(sid) {
-                // location.href =;
-            }
-
-
-            function delete_it(sid) {
-                swal({
-                        title: "確定要刪除該會員資料嗎?",
-                        text: "一旦刪除資料將無法復原!!",
-                        icon: "warning",
-                        buttons: true,
-                        dangerMode: true,
-                    })
-                    .then((willDelete) => {
-                        if (willDelete) {
-                            swal("已經成功刪除該會員資料!", {
-                                icon: "success",
-
-                            }).then((info) => {
-                                location.href = 'data_delete.php?sid=' + sid + '&page=' + page + '&perPage=' + perPage + '&city=' + city + '&sortway=' + sortway + '&keyword=' + keyword;
-                            });
-
-                        } else {
-                            swal("會員資料完整保留");
-                        }
-                    });
-            }
-        </script>
+        function read_it(photo, name,mobile,email,birthday,city,town,address) {
+        Swal.fire({
+            title: `<img src=${photo}>`,
+            // type: 'info',
+            html: `<h2>姓名:${name}</u></h2>
+                    <p>手機:${mobile}</p>
+                    <p>信箱:${email}</p>
+                    <p>生日:${birthday}</p>
+                    <p>地址:${city}${town}${address}</p>`,            
+            showCloseButton: true,
+            // showCancelButton: true,
+            focusConfirm: false,
+            confirmButtonText: '確認',
+            confirmButtonAriaLabel: 'Thumbs up, great!',
+            cancelButtonText: '<i class="fa fa-thumbs-down"></i>',
+            cancelButtonAriaLabel: 'Thumbs down',
+        })
+    }
 
 
-        <?php include __DIR__ . '/__html_foot.php';  ?>
+
+        function delete_it(sid) {
+            swal({
+                    title: "確定要刪除該會員資料嗎?",
+                    text: "一旦刪除資料將無法復原!!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal("已經成功刪除該會員資料!", {
+                            icon: "success",
+
+                        }).then((info) => {
+                            location.href = 'data_delete.php?sid=' + sid + '&page=' + page + '&perPage=' + perPage + '&city=' + city + '&sortway=' + sortway + '&keyword=' + keyword;
+                        });
+
+                    } else {
+                        swal("會員資料完整保留");
+                    }
+                });
+        }
+    </script>
+
+
+    <?php include __DIR__ . '/__html_foot.php';  ?>
