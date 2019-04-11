@@ -1,6 +1,6 @@
 <?php
 session_start();
-require __DIR__ . "./__connect_db.php";
+require __DIR__ . "/__connect_db.php";
 // header("Content-Type: application/json");
 $result = [
     "success" => false,
