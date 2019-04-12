@@ -36,7 +36,7 @@
                 <a href="/III_MFEE03_Code_or_Die/course/data_list.php" class="d-flex align-items-center transition"><i class="material-icons">school</i>課程管理</a>
                 <a href="/III_MFEE03_Code_or_Die/program-test/event_list.php" class="d-flex align-items-center transition"><i class="material-icons">today</i>活動管理</a>
                 <a href="/III_MFEE03_Code_or_Die/route/display.php" class="d-flex align-items-center transition"><i class="material-icons">place</i>路線管理</a>
-                <a href="/III_MFEE03_Code_or_Die/prouduct/p_data_list2.php" class="d-flex align-items-center transition"><i class="material-icons">playlist_add</i>商品管理</a>
+                <a href="/III_MFEE03_Code_or_Die/product/p_data_list2.php" class="d-flex align-items-center transition"><i class="material-icons">playlist_add</i>商品管理</a>
                 <a href="/III_MFEE03_Code_or_Die/post/listtest.php" class="d-flex align-items-center transition"><i class="material-icons">edit</i>文章管理</a>
             </div>
             <a class="log-out d-flex align-items-center transition" id="logout">
