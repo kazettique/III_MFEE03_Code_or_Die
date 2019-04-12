@@ -82,13 +82,14 @@ function formatChecker(inputId, checkFunction) {
 }
 
 // Function: Check Number
+// Purpose: Check if the Input Is Only Number or Not
 function checkNumber(inputValue) {
     let regEx = /[^0-9]/g;
     let checkedValue = inputValue.replace(regEx, "");
     return checkedValue;
 }
 
-// Function: Check Date Format
+// Function: Date Format Checker
 function checkDate(inputValue) {
     let regEx = /^([0-9]\d{3})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
     let result = regEx.test(inputValue);
@@ -96,8 +97,9 @@ function checkDate(inputValue) {
 }
 
 
-// Function:
-function InfoDisplay(inputId, hintId, checkFunction) {
+// Function: Date Format Checker
+// Purpose: Check if the Format of Date is correct
+function showDateFormatHint(inputId, hintId, checkFunction) {
     let inputValue = document.getElementById(inputId).value;
     let result = checkFunction(inputValue);
     if (result === true) {
@@ -107,14 +109,12 @@ function InfoDisplay(inputId, hintId, checkFunction) {
     }
 }
 
-/*
-function InfoDisplay(inputId, checkFunction) {
-    let inputValue = document.getElementById(inputId).value;
-    let result = checkFunction(inputValue);
-    if (result === true) {
-        $('#' + inputId).notify("正確的日期格式!", "success");
-    } else {
-        $('#' + inputId).notify("請輸入正確的日期格式: YYYY-MM-DD", "warn");
-    }
+// Function: Future Date Checker
+// Purpose: Check If Input Date Future Date or Not
+// Reference: https://stackoverflow.com/questions/21499843/javascript-validate-date-input-so-its-only-either-current-or-the-future/21500313
+function isFutureDate(inputDate) {
+    var today = new Date().getTime(),
+        inputDate = inputDate.split("/");
+    inputDate = new Date(inputDate[2], inputDate[1] - 1, inputDate[0]).getTime();
+    return (today - inputDate) < 0;
 }
-*/

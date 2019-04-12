@@ -124,11 +124,11 @@
 <script src="./plugins/ckeditor/ckeditor.js"></script>
 <!---------------------------------------------------------------------------------------------------------------->
 <!-- Public Functions -->
-<script src="javascript/utility.js"></script>
+<script src="scripts/utility.js"></script>
 <!---------------------------------------------------------------------------------------------------------------->
 <!-- Notify.js Script -->
 <script src="plugins/notify-js/notify.min.js"></script>
 <!---------------------------------------------------------------------------------------------------------------->
 <!-- Preload form script -->
 <!-- 導入表格腳本 -->
-<script src="./javascript/formScriptPreload.js"></script>
+<script src="./scripts/formScriptPreload.js"></script>
