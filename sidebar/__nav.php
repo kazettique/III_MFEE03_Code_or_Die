@@ -55,8 +55,8 @@
     <script src="../resources/js/underscore.js"></script>
     <script src="../resources/js/jquery-3.3.1.js"></script>
     <script src="../resources/bootstrap_customised/js/bootstrap.bundle.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script> -->
     <script>
         // (function(){
         //     $('.sidebar').toggleClass('off')

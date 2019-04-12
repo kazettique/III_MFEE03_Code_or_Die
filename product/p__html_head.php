@@ -24,8 +24,8 @@
     <style>
         .row{
         margin: 0 auto;
-        width: 90%;
-    /* }
+        width: 80%;
+    }
     /* .des{
         max-width:200px;
         word-wrap:break-word;
@@ -34,8 +34,7 @@
         height:120px;
 
     }; */
-
-    #data_body td{
+ /* #data_body td{
         vertical-align:middle;
     }
 
@@ -43,7 +42,12 @@
 
     .table th{
         vertical-align:middle;
-    } */
+    } */ */
+   
+
+   .text{
+       text-align:start;
+   }
 
 </style>
     <title>Route</title>
