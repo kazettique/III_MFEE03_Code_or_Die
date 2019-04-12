@@ -70,7 +70,7 @@
                     <form class="searchbar form-inline my-sm-2 ">
                         <input class="form-control mr-sm-2 bgc-gray" type="search" placeholder="請輸入關鍵字" aria-label="Search">
                         <button class="btn bgc-green color-white mr-2 mr-sm-4 my-2 search-submit" type="submit">搜索</button>
-                        <button type="button" class="btn bgc-white border-1-green ">進階搜尋</button>
+                        <!-- <button type="button" class="btn bgc-white border-1-green ">進階搜尋</button> -->
                     </form>
                 </div>
                 <div class="d-flex align-items-center my-md-3 add-new-wrap">
@@ -81,7 +81,7 @@
 
             <div class="w-100 d-flex my-sm-3 setting-wrap position-relative">
                 <select name="" id="" class="form-control border-1-green fa order">
-                    <option value=0 class="fa-caret-down">按新增時間 &#xf0d7;</option>
+                    <option value=0 class="fa">按新增時間 &#xf0d7;</option>
                     <option value=1 class="fa">按新增時間 &#xf0d8;</option>
                 </select>
                 <div class="pagination-wrap d-flex">
@@ -118,7 +118,7 @@
                             <th scope="col">狀態</th>
                             <th scope="col">地址</th>
                             <th scope="col">狀態</th>
-                            <th scope="col">操作</th>
+                            <th scope="col" class="operation">操作</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -145,7 +145,10 @@
                             <td>Thornton</td>
                             <td>Jacob</td>
                             <td>Thornton</td>
-                            <td>@fat</td>
+                            <td class="operation"><div class="d-flex align-items-center ">
+                                <i class="fas fa-edit"></i>
+                                <i class="material-icons">delete</i>
+                            </div></td>
                         </tr>
                         <tr>
                             <th scope="row" class="p-0"><img src="./images/螢幕快照 2018-09-11 下午6.58.14.png" alt=""></th>
@@ -156,7 +159,10 @@
                             <td>the Bird</td>
                             <td>@twitter</td>
                             <td>the Bird</td>
-                            <td>@twitter</td>
+                            <td class="operation"><div class="d-flex align-items-center ">
+                                <i class="fas fa-edit"></i>
+                                <i class="material-icons">delete</i>
+                            </div></td>
                         </tr>
                     </tbody>
                 </table>
