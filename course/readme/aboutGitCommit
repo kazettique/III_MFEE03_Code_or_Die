@@ -1,0 +1,43 @@
+## Git Commit 哲學
+### Git Commit Message 的七條規則
+
+1. 用一行空白行分隔標題與內容
+2. 限制標題最多只有 50 字元
+3. 標題開頭要大寫
+4. 標題不以句點結尾
+5. 以祈使句撰寫標題
+    - 以命令的口氣來撰寫你的標題
+6. 內文每行最多 72 字
+7. 用內文解釋 what 以及 why vs. how
+
+- 資料來源(中文): [如何寫一個 Git Commit Message | louie_lu's blog](https://blog.louie.lu/2017/03/21/如何寫一個-git-commit-message/)
+- 資料來源(英文): [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/)
+
+---
+### Commit技巧: 將commit訊息單一化
+
+- 單一化
+    - 一個commit只修復(解決)**單一**問題
+    - **問題修復完成**後再做commit
+    - 一次只針對**一樣**排版的修改做commit
+    - 排版關聯的檔案以及插件等，合併做commit
+
+- 優點
+    - **容易回溯**，且不影響其他功能
+    - 易於修改 *(這句不太懂意思*
+    - 方便跟其他分支(branch)做合併(merge)
+
+---
+
+- Atomic Approach
+    - Commit each fix or task as a separate change
+    - Only commit when a block of work is complete
+    - Commit each layout change separately
+    - Joint commit for layout file, code behind file, and additional resources
+
+- Benefits
+    - Easy to roll back without affecting other changes
+    - Easy to make other changes on the fly
+    - Easy to merge features to other branches
+
+- 資料來源(英文): [Keep Your Commits “Atomic”](https://www.freshconsulting.com/atomic-commits/)
