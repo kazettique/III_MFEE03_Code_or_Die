@@ -107,18 +107,19 @@
             </div>
             
             <div class="where-you-put-everything">
+                <button style="float:right" class="hide-col btn border-1-green">隱藏欄位</button>
                 <table class="table table-striped mt-2 mt-md-5 main-table">
                     <thead class="table-borderless">
                         <tr>
                             <th scope="col"></th>
-                            <th scope="col">名稱</th>
-                            <th scope="col">手機</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">地址</th>
-                            <th scope="col">狀態</th>
-                            <th scope="col">地址</th>
-                            <th scope="col">狀態</th>
-                            <th scope="col" class="operation">操作</th>
+                            <th scope="col" onclick="hide_col(2)">名稱</th>
+                            <th scope="col" onclick="hide_col(3)">手機</th>
+                            <th scope="col" onclick="hide_col(4)">Email</th>
+                            <th scope="col" onclick="hide_col(5)">地址</th>
+                            <th scope="col" onclick="hide_col(6)">狀態</th>
+                            <th scope="col" onclick="hide_col(7)">地址</th>
+                            <th scope="col" onclick="hide_col(8)">狀態</th>
+                            <th scope="col" class="operation" onclick="hide_col(9)">操作</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -190,6 +191,13 @@
             $('.sidebar').toggleClass('offv')
             $('.sidebar-wrap').toggleClass('offv')
         })
+
+        function hide_col(col){
+            $(`.main-table tbody tr td:nth-child(${col})`).toggleClass('col-block')
+            .children('div').toggleClass('d-none-i')
+            $(`.main-table thead th:nth-child(${col})`).css('width', '1rem')
+            $(this).toggleClass('d-block')
+        }
     </script>
 </body>
 </html>
