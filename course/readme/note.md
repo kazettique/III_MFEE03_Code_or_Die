@@ -1,7 +1,19 @@
+## 特技單車 搜尋關鍵字 提示
+- free stunt bmx
+- stunt bicycle
+- bmx biker
+- bmx
+
+## 單速車 搜尋關鍵字 提示
+- single speed bicycle
+- fixed-gear bicycle
+- fixie bikes
+- pista bike
+
 ## Color Code 色票
 1. 沉穩灰: #eeeded
-2. 活力紅: #e14040
-3. 翡翠綠: #2addc7
+2. 夕陽紅: #e14040
+3. 湖水綠: #2addc7
 4. ...
 
 ###### 提問：顔色名稱待議 
