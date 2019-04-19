@@ -362,10 +362,14 @@ a:hover{
     font-size:.8rem;
 } */
 .col-block{
-    display:block;
+    display:inline-flexbox;
     width:1rem;
     overflow: hidden;
     padding:0;
+    height: 100%;
+}
+.w-1rem{
+    width:1rem;
 }
 .d-none-i{
     display: none!important
@@ -406,12 +410,6 @@ a:hover{
 
 @media (max-width:1200px){
     .add-new{
-        width:2.2rem;
-        position:fixed;
-        padding:0.35rem 0.45rem!important;
-        right:0;
-    }
-    .hide-col{
         width:2.2rem;
         position:fixed;
         padding:0.35rem 0.45rem!important;

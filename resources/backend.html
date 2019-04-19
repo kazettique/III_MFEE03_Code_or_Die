@@ -107,7 +107,7 @@
             </div>
             
             <div class="where-you-put-everything">
-                <button style="float:right" class="hide-col btn border-1-green">隱藏欄位</button>
+        
                 <table class="table table-striped mt-2 mt-md-5 main-table">
                     <thead class="table-borderless">
                         <tr>
@@ -125,42 +125,42 @@
                     <tbody>
                         <tr>
                             <th scope="row" class="p-0"><img src="./images/螢幕快照 2018-09-11 下午6.58.14.png" alt=""></th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td class="operation"><div class="d-flex align-items-center ">
+                            <td><div>Mark</div></td>
+                            <td><div>Otto</div></td>
+                            <td><div>@mdo</div></td>
+                            <td><div>Mark</div></td>
+                            <td><div>Otto</div></td>
+                            <td><div>Mark</div></td>
+                            <td><div>Otto</div></td>
+                            <td class="operation" style="width:1rem"><div class="d-flex align-items-center" style="width:1rem">
                                 <i class="fas fa-edit"></i>
                                 <i class="material-icons">delete</i>
                             </div></td>
                         </tr>
                         <tr>
                             <th scope="row" class="p-0"><img src="./images/螢幕快照 2018-09-11 下午6.58.14.png" alt=""></th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td class="operation"><div class="d-flex align-items-center ">
+                            <td><div>Jacob</div></td>
+                            <td><div>Thornton</div></td>
+                            <td><div>@fat</div></td>
+                            <td><div>Jacob</div></td>
+                            <td><div>Thornton</div></td>
+                            <td><div>Jacob</div></td>
+                            <td><div>Thornton</div></td>
+                            <td class="operation" style="width:1rem"><div class="d-flex align-items-center " >
                                 <i class="fas fa-edit"></i>
                                 <i class="material-icons">delete</i>
                             </div></td>
                         </tr>
                         <tr>
                             <th scope="row" class="p-0"><img src="./images/螢幕快照 2018-09-11 下午6.58.14.png" alt=""></th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                            <td>the Bird</td>
-                            <td class="operation"><div class="d-flex align-items-center ">
+                            <td><div>Larry</div></td>
+                            <td><div>the Bird</div></td>
+                            <td><div>@twitter</div></td>
+                            <td><div>Larry</div></td>
+                            <td><div>the Bird</div></td>
+                            <td><div>@twitter</div></td>
+                            <td><div>the Bird</div></td>
+                            <td class="operation" style="width:1rem"><div class="d-flex align-items-center " >
                                 <i class="fas fa-edit"></i>
                                 <i class="material-icons">delete</i>
                             </div></td>
@@ -195,7 +195,7 @@
         function hide_col(col){
             $(`.main-table tbody tr td:nth-child(${col})`).toggleClass('col-block')
             .children('div').toggleClass('d-none-i')
-            $(`.main-table thead th:nth-child(${col})`).css('width', '1rem')
+            $(`.main-table thead th:nth-child(${col})`).toggleClass('w-1rem')
             $(this).toggleClass('d-block')
         }
     </script>
