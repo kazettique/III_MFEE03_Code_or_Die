@@ -56,15 +56,10 @@
     <script src="../resources/js/jquery-3.3.1.js"></script>
     <script src="../resources/js/jquery.twzipcode.min.js"></script>
     <script src="../resources/bootstrap_customised/js/bootstrap.bundle.js"></script>
-<<<<<<< HEAD
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-=======
-    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script> -->
->>>>>>> 4d404b66850660b8cf87410260865cbf562f65dd
     <script>
         // (function(){
         //     $('.sidebar').toggleClass('off')
