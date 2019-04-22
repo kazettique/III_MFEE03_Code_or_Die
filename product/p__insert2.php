@@ -4,58 +4,11 @@ $page_name = '_insert2';
 
 ?>
 <?php include __DIR__."/p__html_head.php" ;?>
-<!-- siedbar 不消失 -->
-<div id="wrap" class="d-flex justify-content-between">
-        <div class="p-0 sidebar-wrap transition">
-            <div class="sidebar-menu transition">
-                <div class="bar bar1 transition"></div>
-                <div class="bar bar2 transition"></div>
-                <div class="bar bar3 transition"></div>
-            </div>
-            <div class="card border-0 sidebar off">
-                <div class="sidebar-logo d-flex justify-content-center ">
-                    <img src="./resources/images/route-page-title.svg" class="img-fluid">
-                </div>
-                <div class="d-flex flex-column align-items-center position-relative mt-5 mb-3">
-                    <p class="bgc-green badge position-absolute profile-tag fs-1 color-white t-0">普通管理員</p>
-                    <a href="" class="bgc-testing profile-pic my-2"><img src="resources/images/螢幕快照 2018-09-11 下午6.58.14.png" alt=""></a>
-                    <p class="my-1 font-weight-bold fs-1-3 d-flex align-items-center">
-                        <span class="pl-2">Admin</span>
-                        <a href="" class="ml-2 fs-1"><i class="fas fa-edit"></i></a>
-                    </p>
-                </div>
-                <div class="links">
-                    <a href="" class="d-flex align-items-center transition"><i class="material-icons">group</i></svg>概況</a>
-                    <a href="" class="d-flex align-items-center transition"><i class="material-icons">group</i></svg>會員管理</a>
-                    <a href="" class="d-flex align-items-center transition"><i class="material-icons">school</i>課程管理</a>
-                    <a href="" class="d-flex align-items-center transition"><i class="material-icons">today</i>活動管理</a>
-                    <a href="" class="d-flex align-items-center transition"><i class="material-icons">place</i>路線管理</a>
-                    <a href="p_data_list2.php" class="d-flex align-items-center transition"><i class="material-icons">playlist_add</i>商品管理</a>
-                    <a href="" class="d-flex align-items-center transition"><i class="material-icons">edit</i>文章管理</a>
-                </div>
-                <a class="log-out d-flex align-items-center transition">
-                    <i class="material-icons mr-2 pt-1 fs-1-3">power_settings_new</i>
-                    <span>登出</span>
-                </a>
+<?php include __DIR__."/../sidebar/__nav.php"; ?>
 
-            </div>
-            <!-- <div class="h-100 sidebar-arrows">
-                <div class="p-4 sidebar-right fs-1-5"><i class="fas fa-caret-right"></i></div>
-                <div class="p-4 sidebar-left fs-1-5 display-none"><i class="fas fa-caret-left"></i></div>
-            </div> -->
+<div class="container">
 
-        </div>
-
-
-        
-           
-        </div>
-    </div>
-<!-- 不消失 -->
-
-<div class="container-fulid">
-
-    <div class="row" style="width: 40%;">
+    <div class="row" >
         <div class="col-lg-10" style="margin:0">
 
         <div id="info_bar" class="alert alert-success" role="alert" style="display: none">
@@ -98,30 +51,30 @@ $page_name = '_insert2';
 
 
 
-                        <div class="form-group">
+                        <div class="form-group" style="text-align: start;" >
                             <label for="p_name">商品名稱</label>
                             <input type="text" class="form-control" id="p_name" name="p_name" placeholder=""
                                    value="">
                             <small id="nameHelp" class="form-text text-muted"></small>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="text-align: start;">
                             <label for="quantity">數量</label>
                             <input type="text" class="form-control" id="quantity" name="quantity" placeholder=""
                                    value="">
                             <small id="quantityHelp" class="form-text text-muted"></small>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="text-align: start;">
                             <label for="p_description">說明</label>
                             <textarea class="form-control" id="p_description" name="p_description" cols="30" rows="3"></textarea>
                             <small id="descriptionHelp" class="form-text text-muted"></small>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="text-align: start;">
                             <label for="p_price">價格</label>
                             <input type="text" class="form-control" id="p_price" name="p_price" placeholder=""
                                    value="">
                             <small id="priceHelp" class="form-text text-muted"></small>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="text-align: start;">
                             <label for="genre">商品類別</label>
                             <!-- <input type="text" class="form-control" id="genre" name="genre" placeholder=""
                                    value=""> -->
@@ -138,7 +91,7 @@ $page_name = '_insert2';
                                     </div>
                             <small id="genreHelp" class="form-text text-muted"></small>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="text-align: start;">
                         <label for="genre2">商品部件</label>
                         <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -168,19 +121,19 @@ $page_name = '_insert2';
                                    value="">
                             <small id="genre2Help" class="form-text text-muted"></small>
                         </div> -->
-                        <div class="form-group">
+                        <div class="form-group" style="text-align: start;">
                             <label for="p_brand">品牌</label>
                             <input type="text" class="form-control" id="p_brand" name="p_brand" placeholder=""
                                    value="">                           
                                     <small id="brandHelp" class="form-text text-muted"></small>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="text-align: start;">
                             <label for="p_color">顏色</label>
                             <input type="text" class="form-control" id="p_color" name="p_color" placeholder=""
                                    value="">     
                             <small id="colorHelp" class="form-text text-muted"></small>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="text-align: start;">
                             <label for="p_size">尺寸</label>
                             <input type="text" class="form-control" id="p_size" name="p_size" placeholder=""
                                    value="">     

@@ -30,7 +30,7 @@
     <script src="../resources/bootstrap_customised/js/bootstrap.bundle.js"></script>
     <!------------------------------------------------------------------------------------->
     <!-- My Stylesheet -->
-    <link rel="stylesheet" href="./stylesheet/myStylesheet.css">
+    <link rel="stylesheet" href="./stylesheets/myStylesheet.css">
     <!------------------------------------------------------------------------------------->
     <title>Test Title</title>
 </head>

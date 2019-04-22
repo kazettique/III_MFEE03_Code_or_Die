@@ -1,18 +1,21 @@
-
+.title-images-wrap{
+    width:70vw;
+    overflow: hidden;
+}
 .wrap{
     margin:3rem;
 }
 
 .title-wrap{
-    width:15rem;
+    width:12rem;
 }
 
 .wheel-img-wrap{
-    height: 60rem;
+    height: 57vw;
     position:fixed;
     z-index: -1000;
-    top:9vh;
-    left:16vw;
+    top:3.5vh;
+    left:15vw;
 }
 .wheel-img-wrap img{
     height: 100%;
@@ -70,6 +73,12 @@
     left:1rem;
 }
 
+#hint{
+    color:#e14040;
+    left:.7rem;
+    transform: translateY(-1.2rem)
+}
+
 .subwrap form button{
     flex-grow:0;
     margin:.7rem;
@@ -82,3 +91,107 @@
     width:2vw;
 }
 
+@media (max-width: 1400px){
+    .wrap{
+        flex-direction: column;
+    }
+    .the-wheel-wrap{
+        margin-left:2rem;
+    }
+    .title-images-wrap{
+        width:auto;
+    }
+    .subwrap form{
+        flex-direction: row!important;
+        justify-content: flex-end;
+    }
+    .subwrap{
+        height: auto;
+    }
+    .subwrap1{
+        justify-content: flex-end;
+        margin-top:3rem;
+        margin-right:1.5rem;
+    }
+    .login-info{
+        transform: translateY(0);
+    }
+    .subwrap2{
+        position: absolute;
+        right:0;
+        top:0;
+        height: 100vh;
+    }
+
+    .side-text-wrap{
+        width: 2rem;
+    }
+
+    .tag-decor{
+        display:none;
+    }
+}
+@media(max-width:960px){
+    .title-wrap{
+        width:10rem;
+    }
+    .wheel-img-wrap{
+        height: 70vw;
+        top:2rem;
+        left:7rem;
+    }
+    .subwrap form{
+        flex-wrap: wrap;
+    }
+    .subwrap1{
+        margin-top:3rem;
+    }
+    .login-info{
+        justify-content: space-between;
+        margin-right:0;
+    }
+    .the-wheel-wrap{
+        margin:3rem 3rem 3rem 1rem;
+    }
+}
+
+@media (max-width: 768px){
+    .wheel-img-wrap{
+        height: 90vw;
+        top:1rem;
+        left:3rem;
+    }
+    .title-wrap{
+        width:8rem;
+    }
+    .subwrap1{
+        margin-top:0;
+    }
+
+}
+@media(max-width:718px){
+    .subwrap form{
+        justify-content: flex-start;
+        
+        
+    }
+}
+
+@media (max-width: 576px){
+    .subwrap form{
+        flex-direction: column!important;
+    }
+    .the-wheel-wrap{
+        margin:0 2rem;
+        height: 70vw;
+    }
+    .the-wheel-wrap div{
+        height: 8rem;
+    }
+    .subwrap form{
+        justify-content: center;
+    }
+    .subwrap2{
+        display:none!important;
+    }
+}

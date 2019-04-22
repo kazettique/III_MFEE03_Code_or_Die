@@ -1,0 +1,35 @@
+.fa-edit {
+    color: blue;
+}
+
+.fa-trash {
+    color: red;
+}
+
+#upload_photo {
+     /*width: 100%;*/
+     width: 280px;
+     height: 280px;
+     background-color: white;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+     padding: 0.5rem;
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     margin-bottom: 1.5rem;
+     overflow: hidden;
+     object-fit: cover;
+ }
+
+.listPhoto {
+    max-width: 100%;
+    height: 150px;
+}
+
+#insertFormUpper {
+    /*height: 320px;*/
+}
+
+.c_name {
+
+}

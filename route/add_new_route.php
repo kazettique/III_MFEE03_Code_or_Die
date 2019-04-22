@@ -1,6 +1,6 @@
 <?php
 include __DIR__ .'/__html_head.php';
-include __DIR__ . '/__nav.php';
+include  '../sidebar/__nav.php';
 $page_name='add_new';
 ?>
 
@@ -8,33 +8,49 @@ $page_name='add_new';
     .checkform{
         border-color:red;
     }
+    small{
+        color:red;
+        text-align:left;
+    }
+    .tagbtn input{
+        display:none;
+    }
+    .bgc-selected{
+        background-color:#1fbeac!important;
+    }
+    .tagbtn:hover{
+    color:white;
+    background-color:#1fbeac;
+    box-shadow:0px 0px 3px #2addc7;
+}
 </style>
 
 <!-- --------------------------Main Form HTML Start------------------------------------------------------------------------- -->
     <div class="container mt-5 d-flex flex-column align-items-center">
          <div class="col-lg-12 d-flex flex-column align-items-center">
 
-                <form name="form1" method="post"  enctype="multipart/form-data" class="col-lg-9">
+                <form name="form1" method="post"  enctype="multipart/form-data" class="col-lg-9" id="form1">
                     <div class="form-group">
                         <label for="r_name">路線名稱</label>
                         <input type="text" class="form-control" name="r_name" id="r_name" aria-describedby="emailHelp" placeholder="路線名稱">
-                        <small id="emailHelp" class="form-text text-muted"></small>
+                        <small id="nameHelp" class="form-text "></small>
                     </div>
                     <div class="form-group">
                         <label for="r_time">預計時間</label>
                         <input type="text"  name="r_time" id="r_time"class="form-control"  placeholder="預計時間">
+                        <small id="timeHelp" class="form-text text-muted">請按照格式 *D *H *M可省略任意若時間過或短</small>
                     </div>
                     <div class="form-group">
-                        <label class="tagbtn">短途
+                        <label class="tagbtn btn bgc-green color-white">短途
                             <input type="radio" checked="checked" name="r_tag" value="短途">
                         </label>
-                        <label class="tagbtn">長途
+                        <label class="tagbtn btn bgc-green color-white">長途
                             <input type="radio" name="r_tag" value="長途">
                         </label>
-                        <label class="tagbtn">環島
+                        <label class="tagbtn btn bgc-green color-white">環島
                             <input type="radio" name="r_tag" value="環島">
                         </label>
-                        <label class="tagbtn">跨國
+                        <label class="tagbtn btn bgc-green color-white">跨國
                             <input type="radio" name="r_tag" value="跨國">
                         </label>
                     </div>
@@ -43,6 +59,7 @@ $page_name='add_new';
                             <label for="r_country">國家</label>
                             <select type="text" name="r_country" id="r_country" class="form-control">
                             </select>  
+                            <small id="countryHelp" class="form-text"></small>
                         </div>
                         <div class="form-group col-6">
                             <label for="r_area">地區</label>
@@ -68,7 +85,9 @@ $page_name='add_new';
                         <input type="file" name="r_img" id="r_img" class="form-control" onchange="preview()">
                     </div>
                     <div>
-                        <img id="r_img_img" class="my-2" alt="your image" width="600" height="300" style="display:none"/>
+                        <div style="overflow:hidden; width:600px; height:300px">
+                            <img id="r_img_img" class="my-2" alt="your image" style="display:none;width:100%;height:100%;object-fit:cover"/>
+                        </div>
                     </div>
                     <input type="text" name="r_time_added" id="r_time_added" style="display:none">
                 </form>
@@ -86,7 +105,7 @@ $page_name='add_new';
 
 <!-- --------------------------Preview Script Start-------------------------------------------------------------------------- -->
 <script>
-    <?php include __DIR__ .'/tw.js';?>
+    <? include __DIR__ .'/tw.js';?>
 
     for(i in database){
         $('#r_country').append('<option value="'+i+'">'+i+'</option>')
@@ -107,7 +126,11 @@ $page_name='add_new';
     }
     
     // document.querySelector('#r_time_added').value=new Date().toISOString().slice(0, 19).replace('T', ' ');
-    
+    $('.tagbtn input:checked').closest('label').addClass('bgc-selected');
+    $('.tagbtn').click(function(){
+        $('.tagbtn').removeClass('bgc-selected')
+        $('.tagbtn input:checked').closest('label').addClass('bgc-selected');
+    });
 </script>
 <!-- --------------------------Preview Script End-------------------------------------------------------------------------- -->
 
@@ -116,6 +139,7 @@ $page_name='add_new';
     const info_bar = document.querySelector('#info_bar');
     const info_bar2 = document.querySelector('#info_bar2');
     const submit = document.querySelector('#submit');
+    let regexp=/^\d{1,3}D\s\d{1,2}H\s\d{1,2}M$|^\d{1,3}D\s\d{1,2}H$|^\d{1,3}D$|^\d{1,2}H\s\d{1,2}M$|^\d{1,2}H$|^\d{1,2}M$/;
     let rsid = 0;
     let lastSid=0;
     let country='';
@@ -138,24 +162,45 @@ $page_name='add_new';
     
     
     function checkform_route (){
+        console.log('11aaaaaa')
+        $('#timeHelp').addClass('text-muted');
+        $('#form1 input').removeClass('checkform');
+        $('#form1 select').removeClass('checkform');
+        $('small').not('#timeHelp').text('');
         let isPassed=true;
         
         for(let v of fields){
             f_reference[v] = document.form1[v].value;
         }
 
-        if(f_reference['r_country']==''){
+        if(f_reference['r_country']==' '){
+            console.log(1)
             document.querySelector('#r_country').classList.add("checkform");
             document.querySelector('#countryHelp').innerHTML = '請選擇路線所屬國家';
             isPassed = false;
         }
 
-        // if(f_reference['r_time']){
-        //     document.querySelector('#r_time').classList.add("checkform");
-        //     document.querySelector('#countryHelp').innerHTML = '請按照格式XXD-XXh-XXm';
-        //     isPassed = false;
-        // }
+        if(f_reference['r_name']==''){
+            console.log(2)
+            document.querySelector('#r_name').classList.add("checkform");
+            document.querySelector('#nameHelp').innerHTML = '請為本路線命名';
+            isPassed = false;
+        }
+        // let matchresult = f_reference['r_time'].match('^\d{1,3}D\s\d{1,2}H\s\d{1,2}M$|^\d{1,3}D\s\d{1,2}H$|^\d{1,3}D$|^\d{1,2}H\s\d{1,2}M$|^\d{1,2}H$|^\d{1,2}M$');
+        
+        if(f_reference['r_time'].match(regexp)==null|| f_reference['r_time']=='' ){
+            console.log('no')
+            document.querySelector('#r_time').classList.add("checkform");
+            $('#timeHelp').removeClass('text-muted');
+            isPassed = false;
+        }
 
+        if(f_reference['r_img']==''){
+            var r =confirm('確定不上傳路線圖像？')
+            if(r == false){
+            isPassed = false;
+            }   
+        }
 
         if(isPassed){
             document.querySelector('#r_time_added').value=new Date().toGMTString();
@@ -182,11 +227,14 @@ $page_name='add_new';
                     info_bar.className = 'alert alert-danger';
                     info_bar.innerHTML = obj.errMsg;
                 }})
-            .then(
-                function(){    
-                    <?php include __DIR__.'/insert_location_breakdown_2.php';?>
-                        }
-            );
+            .then(xx=>{
+                if(!document.getElementById('test').childNodes.length === 0){
+                     
+                        <?php include __DIR__.'/insert_location_breakdown_2.php';?>
+                        
+                }
+
+            });
 
 
 

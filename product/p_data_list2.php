@@ -77,7 +77,7 @@
 
 
 
-    <div class="row">
+    <div class="">
         <div class="col-md-12 col-sm-12">
             <table class="table  table-bordered">
                 <thead>
@@ -109,7 +109,7 @@
             </table>
         
       
-  
+  </div>
    
 
 
@@ -163,7 +163,7 @@ const data_body = document.querySelector('#data_body');
 
 const tr_str = `<tr>
                         <td ><%= p_sid %></td>
-                        <td><a data-fancybox data-caption="<%=p_name%>" href="./uploads/<%= p_photo%>"><img src="./uploads/<%= p_photo%>" style="height: 100px ; max-width:100%;background-size:cover" alt=""></a></td>
+                        <td><a data-fancybox data-caption="<%=p_name%>" href="./uploads/<%= p_photo%>"><img src="./uploads/<%= p_photo%>" style="height: 150px ;background-size:cover" alt=""></a></td>
                         <td><%= p_name %><a href="p_read.php?sid=<%= p_sid  %>" class="text-info"> <i  class="fas fa-info-circle"></i></a></td>
                         <td><%= quantity %></td>
                         <td><%= p_description %></td>

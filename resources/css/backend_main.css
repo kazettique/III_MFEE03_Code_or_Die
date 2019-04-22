@@ -358,16 +358,33 @@ a:hover{
     line-height: 35px;
     font-weight: 900;
 }
-
+/* .hide-col{
+    font-size:.8rem;
+} */
+.col-block{
+    display:inline-flexbox;
+    width:1rem;
+    overflow: hidden;
+    padding:0;
+    height: 100%;
+}
+.w-1rem{
+    width:1rem;
+}
+.d-none-i{
+    display: none!important
+}
 .main-table thead tr th{
     border-bottom:0;
     font-weight:900;
+    text-align: left;
 }
 .main-table tbody tr th{
     height: 5vw;
     width:8vw;
     overflow:hidden;
     border:2px solid white;
+    
 }
 
 .main-table tbody tr th img{
@@ -377,18 +394,21 @@ a:hover{
 }
 
 .main-table tbody tr td{
-   border:2px solid white;
-   text-align: left;
+    border:2px solid white;
+    text-align: left;
+    /* padding-top:0; */
 }
 
 .main-table .operation{
-    flex-grow: 0;
-    width:3rem;
+    /* flex-grow: 0;
+    flex-shrink: 0; */
+    /* width:1rem; */
+    overflow: hidden;
+    
+    /* padding:0.75rem 0; */
 }
+
 @media (max-width:1200px){
-    /* .add-new-wrap{
-        width:100%;
-    } */
     .add-new{
         width:2.2rem;
         position:fixed;

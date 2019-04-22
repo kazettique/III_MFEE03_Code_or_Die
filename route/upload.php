@@ -1,6 +1,6 @@
  <?php 
 // header('Content-Type:application/json');
-
+if(!empty($r_img)){
 $upload_dir = '../the_wheel_uploads/';
 // $upload_dir =__DIR__. '/upload/';
 
@@ -43,7 +43,8 @@ switch($_FILES['r_img']['type']){
 $result['filename']=$filename;
 
 $upload_file = $upload_dir.$filename;
-
+$r_img=$filename;
+}
 
 
 

@@ -22,7 +22,7 @@
   <body>
       
     <div class="wrap d-flex justify-content-between">
-        <div>
+        <div class="title-images-wrap">
             <div class="title-wrap"><img src="../resources/images/maintitle1.svg" alt=""></div>
 
             <div class="wheel-img-wrap"><img src="../resources/images/wheel-img-svg.svg" alt=""></div>
@@ -30,14 +30,16 @@
             <div class="the-wheel-wrap d-flex flex-column justify-content-between align-items-start">
                 <div class="the-wrap"><img src="../resources/images/the wheel-the.svg" class="img-fluid" alt=""></div>
                 <p>管理者後台</p>
-                <div class="wheel-wrap"><img src="../resources/images/the wheel-wheel.svg" alt=""></div>
+                <div class="wheel-wrap"><img src="../resources/images/the wheel-wheel.svg" class="img-fluid" alt=""></div>
             </div>
 
             <div class="bgc-red tag-decor"></div>
         </div>
-        <div class="subwrap d-flex align-items-center">
+        <div class="subwrap d-flex align-items-center subwrap1">
             <form action="" class="login-info d-flex flex-column">
+                
                 <div class="position-relative">
+                    <span id="hint" class="position-absolute"></span>
                     <input id="username" class="form-control bgc-gray pl-5" type="text" placeholder="帳號" name="username">
                     <i class="material-icons position-absolute position-top-half l-0">account_circle</i>
                 </div>
@@ -45,17 +47,19 @@
                 <input id="password" class="form-control bgc-gray pl-5" type="password" placeholder="密碼" name="password">
                 <i class="material-icons position-absolute position-top-half l-0">lock</i>
             </div>
+            
             <button id="submit" type="submit" class="btn bgc-red color-white align-self-end px-sm-4">登入</button>
+            
             </form>
         </div>
-        <div id="hint">
-        <div class="subwrap d-flex align-items-center">
+        
+        <div class="subwrap d-flex align-items-center subwrap2">
             <div class="side-text-wrap">
                 <img src="../resources/images/side-text-the-wheel.svg" alt="" class="img-fluid">
             </div>
         </div>
 
-    </div>
+    
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -81,6 +85,8 @@
                 }).then(res => res.json()).then(json => {
                     console.log(json)
                     if (json["success"]) {
+                        $('.login-info div input').css({'border': 'none', 'background-color': '#eeeded'})
+                        $("#hint").text("");
                         Swal.fire({
                             type: "success",
                             title: "登入成功!",
@@ -91,6 +97,14 @@
                         setTimeout(()=> {window.location = "../sidebar/__nav.php"}, 1000);
                         
                     } else {
+                        Swal.fire({
+                            type: "error",
+                            title: "帳號或密碼錯誤!",
+                            text:"",
+                            timer:800,
+                            showConfirmButton: false
+                        })
+                        $('.login-info div input').css({'border':'2px solid #e14040','background-color': 'white'})
                         $("#hint").text("帳號或密碼錯誤!");
                        
                     }

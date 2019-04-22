@@ -19,6 +19,7 @@ if(isset($_POST['r_name'])){
     $r_arrive=$_POST['r_arrive'];
     $r_intro=$_POST['r_intro'];
     $r_time_added=$_POST['r_time_added'];
+    $r_img=isset($_POST['r_img'])?$_POST['r_img']:'';
     
 
     $result['post']=$_POST;
@@ -56,7 +57,7 @@ if(isset($_POST['r_name'])){
 
     include __DIR__.'/upload.php';
 
-    $r_img=$filename;
+    
 
     $sql = "INSERT INTO`route`(
             `r_name`, `r_intro`, `r_time`, `r_tag`, `r_country`, 
@@ -80,6 +81,7 @@ if(isset($_POST['r_name'])){
 
         if($stmt->rowCount()==1){
             $result['last_sid']=$pdo->lastInsertId();
+            if(!empty($r_img)){
             if(move_uploaded_file($_FILES['r_img']['tmp_name'],$upload_file)){
                 $result['success']=true;
                 $result['errCode']=200;
@@ -87,6 +89,10 @@ if(isset($_POST['r_name'])){
             }else{
                 $result['errMsg']='暫存圖檔無法轉移';
                 $result['errCode']=452;
+            }}else{
+                $result['success']=true;
+                $result['errCode']=200;
+                $result['errMsg']='';
             }
         }else{
             $result['errCode']=402;

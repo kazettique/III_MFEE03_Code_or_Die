@@ -9,7 +9,7 @@ $page_name = 'data_list';
 <!-- 共用navbar -->
 <?php include __DIR__.'/../sidebar/__nav.php'; ?>
 
-    <link rel="stylesheet" href="stylesheet/myStylesheet.css">
+    <link rel="stylesheet" href="stylesheets/myStylesheet.css">
     <link rel="stylesheet" type="text/css"
           href="https://cdn.datatables.net/v/bs4/dt-1.10.18/r-2.2.2/datatables.min.css"/>
     <div class="container mt-5 pt-3">
