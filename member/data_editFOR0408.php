@@ -17,7 +17,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 ?>
 <?php include __DIR__ . '/__html_head.php';  ?>
-<?php include __DIR__.'/../sidebar/__nav.php'; ?>
+<?php include __DIR__ . '/../sidebar/__nav.php'; ?>
 <style>
     .form-group small {
         color: red !important;
@@ -75,8 +75,8 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     <div class="w-100 d-flex justify-content-between mb-3 align-items-end sub-wrap1">
         <div class="d-flex align-items-end">
             <div class="d-flex flex-column title-big">
-            <div class="title-img">
-                    <div><img src="resources/images/member-page-title.svg" alt="Route Management"></div>
+                <div class="title-img">
+                    <div><img src="../resources/images/member-page-title.svg" alt="Route Management"></div>
                 </div>
                 <h2 class="pageNameRight t-0 mb-3">會員管理</h2>
             </div>
@@ -121,92 +121,92 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <div class="where-you-put-everything">
-    <div class="col-lg-8 mx-auto my-5">
+        <div class="col-lg-8 mx-auto my-5">
 
 
 
-<div class="card border-0">
+            <div class="card border-0">
 
-    <div class="card-body  ">
-        <h5 class="card-title text-center font-weight-bold py-2 display-5">編輯資料
-        </h5>
+                <div class="card-body  ">
+                    <h5 class="card-title text-center font-weight-bold py-2 display-5">編輯資料
+                    </h5>
 
-        <form name="form1" method="post" onsubmit="return checkForm();">
+                    <form name="form1" method="post" onsubmit="return checkForm();">
 
-            <input type="hidden" name="checkme" value="check123">
-            <input type="hidden" name="m_sid" value="<?= $row['m_sid'] ?>">
+                        <input type="hidden" name="checkme" value="check123">
+                        <input type="hidden" name="m_sid" value="<?= $row['m_sid'] ?>">
 
-            <div class="form-group">
-                <div class="imgbox ">
-                    <img id="myimg" src="<?= $row['m_photo'] ?>" alt="" width="100%" height="100%" style="object-fit: cover ">
-                </div>
-                <br>
-                <input type="file" name="my_file" id="my_file" class="">
+                        <div class="form-group">
+                            <div class="imgbox ">
+                                <img id="myimg" src="<?= $row['m_photo'] ?>" alt="" width="100%" height="100%" style="object-fit: cover ">
+                            </div>
+                            <br>
+                            <input type="file" name="my_file" id="my_file" class="">
 
-                <input type="hidden" id="myimg_src" name="myimg_src" value="<?= $row['m_photo'] ?>">
-            </div>
+                            <input type="hidden" id="myimg_src" name="myimg_src" value="<?= $row['m_photo'] ?>">
+                        </div>
 
 
-            <div class="form-group">
-                <label for="m_name">姓名</label>
-                <input type="text" class="form-control col-12 " id="m_name" name="m_name" placeholder="" value="<?= $row['m_name'] ?>">
-                <small id="m_nameHelp" class="form-text text-muted"></small>
-            </div>
+                        <div class="form-group">
+                            <label for="m_name">姓名</label>
+                            <input type="text" class="form-control col-12 " id="m_name" name="m_name" placeholder="" value="<?= $row['m_name'] ?>">
+                            <small id="m_nameHelp" class="form-text text-muted"></small>
+                        </div>
 
-            <div class="form-group">
-                <label for="m_mobile">手機</label>
-                <input type="text" class="form-control col-12 " id="m_mobile" name="m_mobile" placeholder="" value="<?= $row['m_mobile'] ?>">
-                <small id="m_mobileHelp" class="form-text text-muted"></small>
-            </div>
+                        <div class="form-group">
+                            <label for="m_mobile">手機</label>
+                            <input type="text" class="form-control col-12 " id="m_mobile" name="m_mobile" placeholder="" value="<?= $row['m_mobile'] ?>">
+                            <small id="m_mobileHelp" class="form-text text-muted"></small>
+                        </div>
 
-            <div class="form-group">
-                <label for="m_email">電郵(帳號)</label>
-                <input type="text" class="form-control col-12 " id="m_email" name="m_email" placeholder="" value="<?= $row['m_email'] ?>">
-                <small id="m_emailHelp" class="form-text text-muted"></small>
-            </div>
+                        <div class="form-group">
+                            <label for="m_email">電郵(帳號)</label>
+                            <input type="text" class="form-control col-12 " id="m_email" name="m_email" placeholder="" value="<?= $row['m_email'] ?>">
+                            <small id="m_emailHelp" class="form-text text-muted"></small>
+                        </div>
 
-            <div class="form-group">
-                <label for="m_password">密碼</label>
-                <input type="password" class="form-control col-12 " id="m_password" name="m_password" placeholder="" value="<?= $row['m_password'] ?>">
-                <small id="m_passwordHelp" class="form-text text-muted"></small>
-            </div>
+                        <div class="form-group">
+                            <label for="m_password">密碼</label>
+                            <input type="password" class="form-control col-12 " id="m_password" name="m_password" placeholder="" value="<?= $row['m_password'] ?>">
+                            <small id="m_passwordHelp" class="form-text text-muted"></small>
+                        </div>
 
-            <div class="form-group">
-                <label for="confirm_password">確認密碼</label>
-                <input type="password" class="form-control col-12 " id="confirm_password" name="confirm_password" placeholder="" value="<?= $row['m_password'] ?>">
-                <small id="confirm_passwordHelp" class="form-text text-muted"></small>
-            </div>
+                        <div class="form-group">
+                            <label for="confirm_password">確認密碼</label>
+                            <input type="password" class="form-control col-12 " id="confirm_password" name="confirm_password" placeholder="" value="<?= $row['m_password'] ?>">
+                            <small id="confirm_passwordHelp" class="form-text text-muted"></small>
+                        </div>
 
-            <div class="form-group">
-                <label for="m_birthday">生日</label>
-                <input type="date" class="form-control col-12 " id="m_birthday" name="m_birthday" placeholder="YYYY-MM-DD" value="<?= $row['m_birthday'] ?>">
-                <small id="m_birthdayHelp" class="form-text text-muted"></small>
-            </div>
-            <div class="form-group">
-                <!-- <label for="m_address">地址</label>
+                        <div class="form-group">
+                            <label for="m_birthday">生日</label>
+                            <input type="date" class="form-control col-12 " id="m_birthday" name="m_birthday" placeholder="YYYY-MM-DD" value="<?= $row['m_birthday'] ?>">
+                            <small id="m_birthdayHelp" class="form-text text-muted"></small>
+                        </div>
+                        <div class="form-group">
+                            <!-- <label for="m_address">地址</label>
                     <textarea class="form-control" id="m_address" name="m_address" cols="30" rows="3"></textarea> -->
-                <!-- <small id="m_addressHelp" class="form-text text-muted"></small> -->
-                <label for="m_address">地址</label>
-                <div id="zipcode3" class="d-flex">
-                    <div class="f3 col-6 pl-0 " data-role="county">
-                    </div>
-                    <div class="f4 col-6 pr-0 " data-role="district">
-                    </div>
-                </div>
-                <input id="m_address" name="m_address" type="text" class="f13 address form-control my-3 ">
+                            <!-- <small id="m_addressHelp" class="form-text text-muted"></small> -->
+                            <label for="m_address">地址</label>
+                            <div id="zipcode3" class="d-flex">
+                                <div class="f3 col-6 pl-0 " data-role="county">
+                                </div>
+                                <div class="f4 col-6 pr-0 " data-role="district">
+                                </div>
+                            </div>
+                            <input id="m_address" name="m_address" type="text" class="f13 address form-control my-3 ">
 
-                <script>
-                    
-                </script>
+                            <script>
+
+                            </script>
 
 
-            </div>
+                        </div>
 
-            <div class="form-group">
-                <label for="m_score">評價</label>
-                <h4><?= $row['m_score'] ?></h4>
+                        <div class="form-group">
+                            <label for="m_score">評價</label>
+                            <h4><?= $row['m_score'] ?></h4>
 
-                <!-- <input type="radio" id="s-option" name="m_score" value=0 checked="checked">
+                            <!-- <input type="radio" id="s-option" name="m_score" value=0 checked="checked">
                     <label for="s-option">普普通通</label>
 
 
@@ -217,39 +217,39 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                     <label for="t-option"><i class="fas fa-thumbs-down"></i></label>
 
                     <small id="m_birthdayHelp" class="form-text text-muted"></small> -->
+                        </div>
+
+                        <div class="form-group">
+                            <label for="m_active">帳號狀態</label>
+                            <select id="limit" name="m_active">
+                                <option value="0" <?= $row['m_active'] == "正常" ? 'selected' : "" ?>>開啟權限</option>
+                                <option value="1" <?= $row['m_active'] == "停權" ? 'selected' : "" ?>>停止權限</option>
+                            </select>
+
+                            <small id="m_birthdayHelp" class="form-text text-muted"></small>
+                        </div>
+
+                        <script>
+                            var limit = document.querySelector('#limit');
+                        </script>
+
+
+
+
+                        <div class="d-flex justify-content-around">
+                            <button id="submit_btn" type="submit" class="btn btn-info ">確認修改</button>
+                            <a href="javascript:history.back()" class="btn btn-dark">返回列表</a>
+                        </div>
+
+
+                    </form>
+
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="m_active">帳號狀態</label>
-                <select id="limit" name="m_active">
-                    <option value="0" <?= $row['m_active'] == "正常" ? 'selected' : "" ?>>開啟權限</option>
-                    <option value="1" <?= $row['m_active'] == "停權" ? 'selected' : "" ?>>停止權限</option>
-                </select>
-
-                <small id="m_birthdayHelp" class="form-text text-muted"></small>
+            <div id="info_bar" class="alert alert-success" role="alert" style="display: none">
             </div>
-
-            <script>
-                var limit = document.querySelector('#limit');
-            </script>
-
-
-
-
-            <div class="d-flex justify-content-around">
-                <button id="submit_btn" type="submit" class="btn btn-info ">確認修改</button>
-                <a href="javascript:history.back()" class="btn btn-dark">返回列表</a>
-            </div>
-
-
-        </form>
-
-    </div>
-</div>
-
-<div id="info_bar" class="alert alert-success" role="alert" style="display: none">
-</div>
-</div>
+        </div>
 
 
 
@@ -258,24 +258,24 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 </div>
 
 <div class="row">
-   
+
 </div>
 
 
 
-<script src="http://localhost/member/js/jquery-3.3.1.js"></script>
-<script src="http://localhost/member/js/jquery.twzipcode.min.js"></script>
+<!-- <script src="http://localhost/member/js/jquery-3.3.1.js"></script>
+<script src="http://localhost/member/js/jquery.twzipcode.min.js"></script> -->
 
 <script>
-                    $("#zipcode3").twzipcode({
-                        "zipcodeIntoDistrict": true,
-                        "css": ["city form-control ", "town form-control "],
-                        "countySel": "<?= $row['m_city'] ?>", // 城市預設值, 字串一定要用繁體的 "臺", 否則抓不到資料
-                        "districtSel": "<?= $row['m_town'] ?>", // 地區預設值
-                        "zipcodeIntoDistrict": true, // 郵遞區號自動顯示在地區
-                        "countyName": "m_city", // 指定城市 select name
-                        "districtName": "m_town" // 指定地區 select name
-                    });
+    $("#zipcode3").twzipcode({
+        "zipcodeIntoDistrict": true,
+        "css": ["city form-control ", "town form-control "],
+        "countySel": "<?= $row['m_city'] ?>", // 城市預設值, 字串一定要用繁體的 "臺", 否則抓不到資料
+        "districtSel": "<?= $row['m_town'] ?>", // 地區預設值
+        "zipcodeIntoDistrict": true, // 郵遞區號自動顯示在地區
+        "countyName": "m_city", // 指定城市 select name
+        "districtName": "m_town" // 指定地區 select name
+    });
     //圖片上傳開始
 
     const myimg = document.querySelector('#myimg');

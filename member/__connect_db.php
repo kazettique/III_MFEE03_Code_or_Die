@@ -1,9 +1,9 @@
 <?php
 
-$db_host = 'localhost';
+$db_host = '192.168.27.7';
 $db_name = 'the_wheel';
 $db_user = 'clifford';
-$db_pass = '12345';
+$db_pass = '0953830559';
 
 
 $dsn = "mysql:host={$db_host};dbname={$db_name}";

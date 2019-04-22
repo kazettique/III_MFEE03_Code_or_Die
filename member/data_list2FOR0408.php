@@ -562,24 +562,24 @@ $page_name = 'data_list'
             // location.href =;
         }
 
-        function read_it(photo, name,mobile,email,birthday,city,town,address) {
-        Swal.fire({
-            title: `<img src=${photo}>`,
-            // type: 'info',
-            html: `<h2>姓名:${name}</u></h2>
+        function read_it(photo, name, mobile, email, birthday, city, town, address) {
+            Swal.fire({
+                title: `<img src=${photo}>`,
+                // type: 'info',
+                html: `<h2>姓名:${name}</u></h2>
                     <p>手機:${mobile}</p>
                     <p>信箱:${email}</p>
                     <p>生日:${birthday}</p>
-                    <p>地址:${city}${town}${address}</p>`,            
-            showCloseButton: true,
-            // showCancelButton: true,
-            focusConfirm: false,
-            confirmButtonText: '確認',
-            confirmButtonAriaLabel: 'Thumbs up, great!',
-            cancelButtonText: '<i class="fa fa-thumbs-down"></i>',
-            cancelButtonAriaLabel: 'Thumbs down',
-        })
-    }
+                    <p>地址:${city}${town}${address}</p>`,
+                showCloseButton: true,
+                // showCancelButton: true,
+                focusConfirm: false,
+                confirmButtonText: '確認',
+                confirmButtonAriaLabel: 'Thumbs up, great!',
+                cancelButtonText: '<i class="fa fa-thumbs-down"></i>',
+                cancelButtonAriaLabel: 'Thumbs down',
+            })
+        }
 
 
 
