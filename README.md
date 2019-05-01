@@ -1,34 +1,51 @@
-## COD 公告(不時更新)
+# COD 公告(不時更新)
+<br />
+
+### 目錄
+- [SiteMap & FlowChart (2019/04/30)](#SiteMap-&-FlowChart-(2019/04/30))
+- [網站頁面及流程圖 (2019/04/25)](#網站頁面及流程圖 (2019-04-25))
+- [如何寫一個 Git Commit Message (2019/04/11)](#如何寫一個-Git-Commit-Message-(2019/04/11))
+- [Color Code 色票 (2019/04/10)](#Color-Code-色票-(2019/04/10))
+- [工作分配 Team Work](#工作分配-team-work)
+  - [後台功能](#後台功能)
+  - [前台功能](#前台功能)
+- [網站名稱 Site Name Candidate](#網站名稱-site-name-candidate)
+
+---
+
+#### SiteMap & FlowChart (2019/04/30)
+- [theWheelSiteMap_20190430.drawio](https://drive.google.com/file/d/1_AzSo1xrW6nIjrbBpQfV6-OiMwcCvIgm/view?usp=sharing)
 
 #### 如何寫一個 Git Commit Message (2019/04/11)
 關於如何撰寫git的commit訊息，有需要可以參考一下
 - 中文翻譯: [如何寫一個 Git Commit Message](https://blog.louie.lu/2017/03/21/如何寫一個-git-commit-message/)
 - 英文(原文): [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/)
-
+<!--
 #### 關於git的commit訊息 (2019/04/10) 
 ##### Git推送的commit訊息，前面加上英文字母代號 (英文名字第一個字母)，方便辨認，例如：
 1. W: 表格更新
 2. V: navbar樣式修改
 3. 以此類推
 
-##### 代號對照表： 
+**代號對照表：**
 | 代號 | 英文名字 | 姓名 |
 |------|----------|--------|
-| A | Allen | 王竣麟 |
-| C | Clifford | 田仲展 |
-| I | Ivy | 張涓悅 |
-| L | Leo | 蔡承恩 |
-| V | Vince | 廖政宇 |
-| W | Woody | 張皓涵 |
+| A | Allen | 王*麟 |
+| C | Clifford | 田*展 |
+| I | Ivy | 張*悅 |
+| L | Leo | 蔡*恩 |
+| V | Vince | 廖*宇 |
+| W | Woody | 張*涵 |
+-->
 
-## Color Code 色票（2019/04/10） 
+#### Color Code 色票 (2019/04/10)
 1. 沉穩灰: #eeeded
 2. 夕陽紅: #e14040
 3. 湖水綠: #2addc7
-4. ...
+4. 湖水藍: #4ce2ef
 
 ---
-
+<!--
 ## 網站地圖 Sitemap
 | Landing Page | 首頁 | 單車組裝導覽 | 騎車路線 | 商品頁面 | 買家後台 | 賣家後台 | 管理者後台 | Footer |
 |:------------:|:--------:|:------------:|:-------------------:|:--------:|:------------:|:--------:|:---------------------:|:----------:|
@@ -40,9 +57,10 @@
 |  |  |  | 地點推薦<br>(特技車) |  | 檢舉系統 | 聯絡買家 | 商品管理<br>(官方商品) |  |
 |  |  |  | 單車修理地點 |  | 我的最愛清單 | 商品競標 | 促銷活動管理 |  |
 |  |  |  |  |  |  | 賣家報表 |  |  |
+-->
 
-## 工作分配 Team Work
-### 後台功能
+#### 工作分配 Team Work
+#### 後台功能
 | 編號  | 後臺功能  | 負責人    |
 |------|----------|----------|
 | 1    | 賣家後台  | Allen    |
@@ -52,11 +70,10 @@
 | 5    | 路線規劃  | Ivy      |
 | 6    | 課程集資  | Woody    |
 
-### 前台功能
+#### 前台功能
 未定
 
-## 網站名稱 Site Name Candidate
+#### 網站名稱 Site Name Candidate
 - The Wheel
 - 卡打車
 - Steed
--

@@ -2,5 +2,7 @@
 \.DS_Store
 
 \.idea/
-login/__connect_db.php
+
+__connect_db.php
+
 course/xCheckToday\.html
