@@ -222,8 +222,8 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                         <div class="form-group">
                             <label for="m_active">帳號狀態</label>
                             <select id="limit" name="m_active">
-                                <option value="0" <?= $row['m_active'] == "正常" ? 'selected' : "" ?>>開啟權限</option>
-                                <option value="1" <?= $row['m_active'] == "停權" ? 'selected' : "" ?>>停止權限</option>
+                                <option value="正常" <?= $row['m_active'] == "正常" ? 'selected' : "" ?>>開啟權限</option>
+                                <option value="停權" <?= $row['m_active'] == "停權" ? 'selected' : "" ?>>停止權限</option>
                             </select>
 
                             <small id="m_birthdayHelp" class="form-text text-muted"></small>
