@@ -13,12 +13,26 @@ $page_name='home';
 
     .card-img{
         width:100%;
-        height:auto;
+        height:100%;
         object-fit:cover;
+        background-color:black;
+    }
+
+    .card-img-txt{
+        color:white;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        text-align:center;
+        font-size:2rem;
+        font-weight:900;
+        margin-top:5rem
+        
     }
 
     .icon{
         z-index:1000;
+        color:red;
     }
 
     .intro{
@@ -198,7 +212,8 @@ $page_name='home';
                 
                 str = '';
                 
-                let r_on=''
+                let rimg='';
+                let r_on='';
                 let d = obj['data'];
                 for(let card in d){
                     if(d[card]['r_on']=='1'){
@@ -206,13 +221,20 @@ $page_name='home';
                     }else{
                         r_on='<i class="fas fa-eye-slash"></i>';
                     }
+                    if(d[card]['r_img']){
+                        rimg=`<img class="card-img" src="../the_wheel_uploads/${d[card]['r_img']}";>`
+                    }else{
+                        rimg=`<div class="card-img d-flex align-items-center">
+                        <div class="card-img-txt"> ${d[card]['r_name']}</div>
+                        </div>`;
+                    }
                     let inlocaltime = new Date(`${d[card]['r_time_added']}`).toLocaleString()
                     str+=`<div class="card" style="width: 15rem;  margin:1rem .5rem; position:relative;">
                                         <a class="icon" href="javascript:delete_r(${d[card]['r_sid']})" style="position:absolute;top:.5rem;right:.5rem"><i class="fas fa-trash-alt"></i></a>
                                         <a class="icon" href="edit_route.php?r_sid=${d[card]['r_sid']}" style="position:absolute;top:.5rem;left:.5rem"><i class="fas fa-edit"></i></a>
                                         <a class="icon" href="javascript:r_on_switch(${d[card]['r_sid']})" style="position:absolute;top:.5rem;left:7rem" id="ron${d[card]['r_sid']}">${r_on}</a>
                                         <div class="card-img-con" alt="IMG">
-                                        <img class="card-img" src="../the_wheel_uploads/${d[card]['r_img']}";>
+                                            ${rimg}
                                         </div>
                                         <div class="card-body">
                                             <h5 class="card-title rName">${d[card]['r_name']}</h5>

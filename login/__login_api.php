@@ -20,6 +20,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
         $result["success"] = true;
         $_SESSION["username"] = $result["admin"]["name"];
+        $_SESSION["id"] = $result["admin"]["id"];
     } else {
         $result["success"] = false;
     }

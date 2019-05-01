@@ -7,7 +7,7 @@
 $sql ="SELECT * FROM `route_location` WHERE r_sid=$rsid";
 // var_dump($rsid);
 $row2= $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-
+var_dump(json_encode($row2));
 $str = [];
 $str2 = [];
 include __DIR__ .'/__html_head.php';
@@ -254,7 +254,7 @@ include __DIR__ .'/__html_head.php';
     };
 
     function delete_l(l_sid){
-        if(confirm(`確定要刪除編號為${l_sid}的路線？`))
+        if(confirm(`確定要刪除地點嗎？`))
         fetch('delete_location.php?l_sid='+ l_sid)
         .then(res=>res.json())
         .then(obj=>{

@@ -26,7 +26,7 @@
 </style>
 
 
-    <button class="btn btn-primary" onclick="javascript:addNewPlace()">Add Location</button>
+    <button class="btn btn-primary" onclick="addNewPlace()">Add Location</button>
 
     <form method="post" name="form2" id="form2" style="width:100%">
         <div id="test"></div>
@@ -49,6 +49,7 @@
         test.insertAdjacentHTML('beforeend',`
                             <div class="form-group location-group p-3 my-3" id="l_id${count}">
                                 <input type="text"  name="r_sid[]" class="lr_sid" value="" style="display:none">
+                                <input type="text"  name="l_order[]" class="l_order" style="display:none">
                                 <button type="button" class="btn-danger l_delete" onclick="javascript:del(this.id)" id="${count}"><i class="fas fa-trash-alt"></i></button>
                                 <label for="r_name">地點名稱${count}</label>
                                 <input type="text" class="form-control" name="l_name[]" id="l_name${count}" placeholder="地點名稱">
@@ -92,7 +93,7 @@
                         $(`#l_area${count}`).append('<option value="'+database[county][k]+'">'+database[county][k]+'</option>');
                 }
             })
-
+            
             document.querySelector(`#l_area${count}`).value=area.value;
     }
     function del(click_id){
