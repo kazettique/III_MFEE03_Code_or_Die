@@ -7,11 +7,11 @@
     };
 
     for(i=0;i<lrsid.length;i++){
-        lcountry[i].value=country;
+        lcountry[i].value=country[i];
     };
 
     for(i=0;i<lrsid.length;i++){
-        larea[i].value=area;
+        larea[i].value=area[i];
     };
 
 

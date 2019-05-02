@@ -142,8 +142,8 @@ $page_name='add_new';
     let regexp=/^\d{1,3}D\s\d{1,2}H\s\d{1,2}M$|^\d{1,3}D\s\d{1,2}H$|^\d{1,3}D$|^\d{1,2}H\s\d{1,2}M$|^\d{1,2}H$|^\d{1,2}M$/;
     let rsid = 0;
     let lastSid=0;
-    let country='';
-    let area='';
+    let country=[];
+    let area=[];
     const f_reference = {};
     const fields=[
         'r_name', 
@@ -157,12 +157,9 @@ $page_name='add_new';
         'r_img',
     ];
 
-    
-    
-    
+
     
     function checkform_route (){
-        console.log('11aaaaaa')
         $('#timeHelp').addClass('text-muted');
         $('#form1 input').removeClass('checkform');
         $('#form1 select').removeClass('checkform');
@@ -186,7 +183,6 @@ $page_name='add_new';
             document.querySelector('#nameHelp').innerHTML = '請為本路線命名';
             isPassed = false;
         }
-        // let matchresult = f_reference['r_time'].match('^\d{1,3}D\s\d{1,2}H\s\d{1,2}M$|^\d{1,3}D\s\d{1,2}H$|^\d{1,3}D$|^\d{1,2}H\s\d{1,2}M$|^\d{1,2}H$|^\d{1,2}M$');
         
         if(f_reference['r_time'].match(regexp)==null|| f_reference['r_time']=='' ){
             console.log('no')
@@ -217,19 +213,32 @@ $page_name='add_new';
             .then(obj=>{
                 info_bar.style.display = 'block';
                 if(obj.success){
-                    // rsid=obj.post.r_sid;
+                    // swal.fire("", '路線新增成功', "success");
                     info_bar.className = 'alert alert-success';
                     info_bar.innerHTML = '路線新增成功';
                     lastSid=obj.last_sid;
-                    country=obj.post.r_country;
-                    area=obj.post.r_area;
+
+                        const fieldC = document.getElementsByClassName('l_country')
+                        const fieldA = document.getElementsByClassName('l_area')
+                        console.log('fieldC :'+ fieldC.length)
+                        console.log(fieldC)
+                        for(i=0;i<fieldC.length;i++){
+                            country.push(fieldC[i].value)
+                        }
+                        for(i=0;i<fieldA.length;i++){
+                            area.push(fieldA[i].value)
+                        }
+                        console.log(country)
+                        console.log(area)
+
+
                 }else{
+                    // swal.fire("", obj.errMsg, "warning");
                     info_bar.className = 'alert alert-danger';
-                    info_bar.innerHTML = obj.errMsg;
+                    info_bar.innerHTML = obj.errMsg;                   
                 }})
             .then(xx=>{
-                if(!document.getElementById('test').childNodes.length === 0){
-                     
+                if(document.getElementById('test').childNodes.length !== 0){
                         <?php include __DIR__.'/insert_location_breakdown_2.php';?>
                         
                 }

@@ -7,7 +7,7 @@
 $sql ="SELECT * FROM `route_location` WHERE r_sid=$rsid";
 // var_dump($rsid);
 $row2= $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-var_dump(json_encode($row2));
+//var_dump(json_encode($row2));
 $str = [];
 $str2 = [];
 include __DIR__ .'/__html_head.php';
@@ -93,7 +93,10 @@ include __DIR__ .'/__html_head.php';
                             <a class="icon mx-3" href="javascript:update_l('<?=$row2[$i]['l_sid']?>')" id="update<?=$row2[$i]['l_sid']?>"><i class="fas fa-edit"></i></a>
                             <a class="icon mx-3" href="javascript:delete_l(<?=$row2[$i]['l_sid']?>)" ><i class="fas fa-trash-alt"></i></a>
                         </div>
-                        
+                        <div>
+                        <button class="btn btn-success">up</button>
+                        <button class="btn btn-success">down</button>
+                        </div>
                         <label for="l_name">地點名稱<?=$k?></label>
                         <input type="text" class="form-control <?=$row2[$i]['l_sid']?>" name="l_name[]" id="l_name${count}" value="<?=$row2[$i]['l_name']?>" disabled="true">
                         
@@ -129,6 +132,7 @@ include __DIR__ .'/__html_head.php';
 <!-- --------------------------------------------------need to work on cross country start------------------------------ -->
 <script>
     <?php include __DIR__ .'/tw.js';?>
+    
     lc=document.getElementsByClassName('lc');
     let all = <?=json_encode($str)?>;
     let all2 = <?=json_encode($str2)?>;
@@ -317,8 +321,6 @@ include __DIR__ .'/__html_head.php';
 
     };
 
-    
-
     function update_done(thisid){
         const formname = document.querySelector(`#${thisid}`).parentElement;
         let formX = new FormData(formname);
@@ -329,14 +331,15 @@ include __DIR__ .'/__html_head.php';
             })
             .then(res=>res.json())
             .then(obj=>{
-                info_bar3.style.display = 'block';
+                // info_bar3.style.display = 'block';
                 if(obj.success){
-                    info_bar3.className = 'alert alert-success';
-                    info_bar3.innerHTML = '路線修改成功';
+                    swal.fire("", '地點修改成功', "success");
+                    // info_bar3.className = 'alert alert-success';
+                    // info_bar3.innerHTML = '地點修改成功';
                     formname.classList.remove("working")
                     document.querySelector(`#${thisid}`).style.display='none';
                     setTimeout(() => {
-                        info_bar3.style.display = 'none';
+                        // info_bar3.style.display = 'none';
                         // main_l();
                         location.reload();
                     }, 2000);
@@ -349,7 +352,8 @@ include __DIR__ .'/__html_head.php';
             // completebtn.style.display='block';
             // return false;
             // console.log(formX)
-        }
+    }
+
 
 </script>
 
