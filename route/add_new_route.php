@@ -139,6 +139,7 @@ $page_name='add_new';
 <!-- <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+
 <script>
     const info_bar = document.querySelector('#info_bar');
     const info_bar2 = document.querySelector('#info_bar2');
@@ -195,12 +196,12 @@ $page_name='add_new';
             isPassed = false;
         }
 
-        // if(f_reference['r_img']==''){
-        //     var r =confirm('確定不上傳路線圖像？')
-        //     if(r == false){
-        //     isPassed = false;
-        //     }   
-        // }
+        if(f_reference['r_img']==''){
+            var r =confirm('確定不上傳路線圖像？')
+            if(r == false){
+            isPassed = false;
+            }   
+        }
 
         if(isPassed){
             document.querySelector('#r_time_added').value=new Date().toGMTString();
@@ -215,9 +216,15 @@ $page_name='add_new';
             })
             .then(res=>res.json())
             .then(obj=>{
-                info_bar.style.display = 'block';
+                // info_bar.style.display = 'block';
                 if(obj.success){
-                    swal.fire("", '路線新增成功', "success");
+                    swal({
+                            title: "路線新增成功",
+                            text: "",
+                            icon: "success",
+                            button: "確定!",
+                        });
+                    // swal.fire("", '路線新增成功', "success");
                     // info_bar.className = 'alert alert-success';
                     // info_bar.innerHTML = '路線新增成功';
                     lastSid=obj.last_sid;
@@ -237,7 +244,13 @@ $page_name='add_new';
 
 
                 }else{
-                    swal.fire("", obj.errMsg, "warning");
+                    swal({
+                            title: "路線新增失敗",
+                            text: "",
+                            icon: "warning",
+                            button: "確定!",
+                        });
+                    // swal.fire("", obj.errMsg, "warning");
                     info_bar.className = 'alert alert-danger';
                     info_bar.innerHTML = obj.errMsg;                   
                 }})

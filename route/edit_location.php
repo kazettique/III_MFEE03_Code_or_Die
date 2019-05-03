@@ -276,7 +276,6 @@ include __DIR__ .'/__html_head.php';
     };
 
     let update_l = function (update_lsid){
-        console.log('1111');
         const lsid=document.getElementsByClassName(update_lsid);
         
         for(i=0;i<lsid.length;i++){
