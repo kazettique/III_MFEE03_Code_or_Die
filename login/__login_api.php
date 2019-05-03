@@ -4,7 +4,8 @@ require __DIR__ . "/__connect_db.php";
 // header("Content-Type: application/json");
 $result = [
     "success" => false,
-    "admin" => []
+    "admin" => [],
+    "session"=>[]
 ];
 
 if (isset($_POST['username']) && isset($_POST['password'])) {
@@ -21,9 +22,11 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $result["success"] = true;
         $_SESSION["username"] = $result["admin"]["name"];
         $_SESSION["id"] = $result["admin"]["id"];
+        $result['session']=$_SESSION;
     } else {
         $result["success"] = false;
     }
 }
 
 echo json_encode($result, JSON_UNESCAPED_UNICODE);
+

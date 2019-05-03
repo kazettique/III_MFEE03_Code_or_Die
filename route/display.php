@@ -222,7 +222,7 @@ $page_name='home';
                         r_on='<i class="fas fa-eye-slash"></i>';
                     }
                     if(d[card]['r_img']){
-                        rimg=`<img class="card-img" src="../the_wheel_uploads/${d[card]['r_img']}";>`
+                        rimg=`<img class="card-img" src="dirname__/../../../the_wheel_uploads/${d[card]['r_img']}";>`
                     }else{
                         rimg=`<div class="card-img d-flex align-items-center">
                         <div class="card-img-txt"> ${d[card]['r_name']}</div>

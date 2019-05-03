@@ -25,10 +25,9 @@ $sql = "SELECT rc.`r_c`, m.`m_name`, m.`m_photo`, rc.`r_c_time`, a.`name`
         WHERE r.`r_sid`= $rsid";
 $row3 = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
-// var_dump($row3);
-
 include __DIR__ .'/__html_head.php';
 include  '../sidebar/__nav.php';
+
 ?>
 <style>
     .cover-img{
@@ -80,7 +79,7 @@ include  '../sidebar/__nav.php';
 
 <div class="container mt-5">
     <div class="cover-img">
-        <img src="../the_wheel_uploads/<?=$row['r_img']?>" alt="">
+        <img src="dirname__/../../../the_wheel_uploads/<?=$row['r_img']?>" alt="">
         <a class="icon_edit" href="edit_route.php?r_sid=<?=$row['r_sid']?>"><i class="fas fa-edit"></i></a>
     </div>
     
@@ -147,7 +146,7 @@ include  '../sidebar/__nav.php';
     <? isset($_SESSION['sid']);?>
     <form method="POST" onsubmit="return false" name="newComment">
         <textarea placeholder="輸入你想要寫的內容..." name="r_c"></textarea>
-        <input name="m_sid" class="d-none" value="<?= $_SESSION['id']?>"> 
+        <input name="m_sid" class="d-none" value="<?= $_SESSION["id"]?>"> 
         <input name="r_sid" class="d-none" value="<?=$rsid?>"> 
         <input name="r_c_time" class="d-none" id="r_c_time">
         <button type="button" onclick="add_comment()" class="btn btn-primary">Submit</button>

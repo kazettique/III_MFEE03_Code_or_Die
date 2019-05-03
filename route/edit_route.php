@@ -105,7 +105,7 @@ include __DIR__ .'/__html_head.php';
                 <input type="file" name="r_img" id="r_img" class="form-control" onchange="javascript:preview()">
             </div>
             <div>
-                <img id="r_img_img" class="my-2" alt="圖像不存在請重新上傳" width="600" height="300" src="../the_wheel_uploads/<?=$row['r_img']?>"/>
+                <img id="r_img_img" class="my-2" alt="圖像不存在請重新上傳" width="600" height="300" src="dirname__/../../../the_wheel_uploads/<?=$row['r_img']?>"/>
             </div>
             
             
