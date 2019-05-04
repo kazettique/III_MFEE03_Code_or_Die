@@ -73,7 +73,7 @@
                             </div>
                         
                     `);
-            <? include __DIR__ .'/tw.js';?>
+            
 
             for(i in database){
                 $(`#l_country${count}`).append('<option value="'+i+'">'+i+'</option>')
