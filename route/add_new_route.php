@@ -3,7 +3,7 @@ include __DIR__ .'/__html_head.php';
 include  '../sidebar/__nav.php';
 $page_name='add_new';
 ?>
-
+<!-- <script>swal.fire("", '路線修改成功', "success");</script> -->
 <style>
     .checkform{
         border-color:red;

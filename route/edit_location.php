@@ -10,7 +10,7 @@ $row2= $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 //var_dump(json_encode($row2));
 $str = [];
 $str2 = [];
-include __DIR__ .'/__html_head.php';
+// include __DIR__ .'/__html_head.php';
 
 ?>
 
@@ -94,8 +94,8 @@ include __DIR__ .'/__html_head.php';
                             <a class="icon mx-3" href="javascript:delete_l(<?=$row2[$i]['l_sid']?>)" ><i class="fas fa-trash-alt"></i></a>
                         </div>
                         <div>
-                        <button class="btn btn-success">up</button>
-                        <button class="btn btn-success">down</button>
+                        <button class="btn btn-success" onclick="orderup">up</button>
+                        <button class="btn btn-success" onclick="orderDown">down</button>
                         </div>
                         <label for="l_name">地點名稱<?=$k?></label>
                         <input type="text" class="form-control <?=$row2[$i]['l_sid']?>" name="l_name[]" id="l_name${count}" value="<?=$row2[$i]['l_name']?>" disabled="true">
