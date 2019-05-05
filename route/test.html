@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li onclick="orderDown" data-order="1">down</li>
+      <li>aaa</li>
+      <li>aaaa</li>
+    </ul>
+
+    <script>
+      const li = document.querySelectorAll("li");
+
+      function orderUp() {
+        if (element.previousElementSibling)
+          element.parentNode.insertBefore(
+            element,
+            element.previousElementSibling
+          );
+      }
+
+      function orderDown() {
+        if (this.nextElementSibling)
+          this.parentNode.insertBefore(this.nextElementSibling, this);
+      }
+    </script>
+  </body>
+</html>

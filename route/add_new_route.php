@@ -23,6 +23,30 @@ $page_name='add_new';
     background-color:#1fbeac;
     box-shadow:0px 0px 3px #2addc7;
 }
+    .location-group{
+        position:relative;
+    }
+
+    .l_delete{
+        position:absolute;
+        top:.3rem;
+        right:.5rem;
+    }
+
+    .form-short{
+    width:100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
 </style>
 
 <!-- --------------------------Main Form HTML Start------------------------------------------------------------------------- -->
@@ -85,14 +109,21 @@ $page_name='add_new';
                         <input type="file" name="r_img" id="r_img" class="form-control" onchange="preview()">
                     </div>
                     <div>
-                        <div style="overflow:hidden; width:600px; height:300px">
-                            <img id="r_img_img" class="my-2" alt="your image" style="display:none;width:100%;height:100%;object-fit:cover"/>
+                        <div style="overflow:hidden; width:600px; height:300px" class="d-none">
+                            <img id="r_img_img" class="my-2" alt="your image" style="width:100%;height:100%;object-fit:cover"/>
                         </div>
                     </div>
                     <input type="text" name="r_time_added" id="r_time_added" style="display:none">
                 </form>
         </div>
-                <?php include __DIR__.'/insert_location_breakdown_1.php';?>
+        <div>
+            <button class="btn btn-primary" onclick="addNewPlace()">Add Location</button>
+            <form method="post" name="form2" id="form2" style="width:100%">
+                <div id="test"></div>
+            </form>
+            <div id="info_bar2" class="alert alert-success" role="alert" style="display: none; margin-top:1rem"></div>
+        </div>
+                
                 <button type="submit" id="submit" class="btn btn-primary my-4"  onclick="checkform_route()">Submit</button>
                 <div id="info_bar" class="alert alert-success" role="alert" style="display: none; margin-top:1rem">
                 </div>
@@ -122,6 +153,7 @@ $page_name='add_new';
     
     function preview(){
         rimg_img=document.getElementById('r_img_img');
+        rimg_img.parentElement.classList.toggle('d-none');
         document.getElementById('r_img_img').src = window.URL.createObjectURL(r_img.files[0]);
         document.getElementById('r_img_img').style.display = 'inline';
     }
@@ -270,7 +302,7 @@ $page_name='add_new';
         return false;
     }
 </script>
-
+<?php include __DIR__.'/insert_location_breakdown_1.php';?>
 
 
 
