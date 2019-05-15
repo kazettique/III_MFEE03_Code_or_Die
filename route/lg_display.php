@@ -132,7 +132,8 @@ include  '../sidebar/__nav.php';
             echo "<li class='comment_box m-3'>
                     <p class='p-3'>{$row3[$i]["r_c"]}</p>
                     <div class='d-flex justify-content-end align-items-center'>
-                        <span class='localtime'>{$user} <br> </span>
+                        <span>{$user}<br><span class='localtime'>{$row3[$i]["r_c_time"]}</span></span>
+
                         <div class='avatar m-2'>
                             <img src='{$row3[$i]["m_photo"]}' alt=''>
                         </div> 
@@ -158,14 +159,18 @@ include  '../sidebar/__nav.php';
 </div>
 
 <script>
-    let timetags = document.getElementsByClassName('localtime');
-    const comments = document.getElementById('comments')
-    if(timetags.length !== 0){
-        let times = <?=json_encode($times)?>;
-        for(i=0;i<timetags.length;i++){
-            timetags[i].innerHTML = new Date(times[i+1]).toLocaleString()
+    function tolocaltime(){
+        let timetags = document.getElementsByClassName('localtime');
+        const comments = document.getElementById('comments')
+        if(timetags.length !== 0){
+            let times = <?=json_encode($times)?>;
+            for(i=0;i<timetags.length;i++){
+                timetags[i].innerHTML = new Date(times[i+1]).toLocaleString()
+            }
         }
     }
+    tolocaltime()
+
 
 
     function add_comment(){
@@ -182,12 +187,13 @@ include  '../sidebar/__nav.php';
             let str=""
             let all=obj.all
             for (i=0; i<all.length; i++){
-                $user = all[i]["name"] == null? all[i]["m_name"]:all[i]["name"];
+                let user = all[i]["name"] == null? all[i]["m_name"]:all[i]["name"];
+                let time = new Date(all[i]["r_c_time"]).toLocaleString()
                 str += `
                 <li class='comment_box m-3'>
                     <p class='p-3'>${all[i]["r_c"]}</p>
                     <div class='d-flex justify-content-end align-items-center'>
-                        <span class='localtime'>${$user} <br> </span>
+                        <span>${user} <br> <span class='localtime'>${time}</span></span>
                         <div class='avatar m-2'>
                             <img src='${all[i]["m_photo"]}' alt=''>
                         </div> 
@@ -198,7 +204,9 @@ include  '../sidebar/__nav.php';
 
             comments.insertAdjacentHTML('afterbegin', str)
             $('textarea').val('');
-        });
+            // tolocaltime()
+        })
+        
     }
 </script>
 
