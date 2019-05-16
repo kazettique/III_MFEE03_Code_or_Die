@@ -223,12 +223,24 @@ include __DIR__ .'/__html_head.php';
             .then(obj=>{
                 // info_bar.style.display = 'block';
                 if(obj.success){
-                    swal.fire("", '路線修改成功', "success");
+                    swal({
+                        title: "路線修改成功",
+                        text: "",
+                        icon: "success",
+                        button: "確定",
+                    });
                     
                 }else{
-                    swal.fire("", obj.errMsg, "warning");
+                    swal({
+                        title: obj.errMsg,
+                        text: "",
+                        icon: "warning",
+                        button: "確定",
+                    });
+                    return
                 }
             })
+            .then(a=>update_done())
         };
   
 

@@ -64,7 +64,7 @@ $str2 = [];
         
         <div class="my-4" id="main_l">
             <form name="form_all_l" id="form_all_l"></form>
-            <button type="button" class="btn btn-primary mt-4" id="complete" onclick="update_done()">Complete</button>
+            <!-- <button type="button" class="btn btn-primary mt-4" id="complete" onclick="update_done()">Complete</button> -->
         </div>
         <button class="btn bgc-green color-white my-5 d-block" type="button" onclick="addNewPlace()">Add Location</button>
         <!-- <form id="test" method="post" name="form2"></form>  -->
@@ -229,7 +229,9 @@ $str2 = [];
             }
             info_bar2.style.display = 'block';
 
-            location.reload();
+            // location.reload();
+            ajax_after_update();
+            reorder()
         })
     };
 
@@ -246,7 +248,7 @@ $str2 = [];
                 // info_bar3.style.display = 'block';
                 if(obj.success){
                     swal({
-                        title: "地點修改成功",
+                        title: "修改成功",
                         text: "",
                         icon: "success",
                         button: "確定",
@@ -315,6 +317,7 @@ $str2 = [];
             form_all_l.innerHTML=str;
             country_value(arr_c,arr_a)
             add_clickevent_order()
+            reorder()
         })
     }
 //  ------------------------------order ----------------------------------------
@@ -325,7 +328,7 @@ function add_clickevent_order(){
             orderDownBtn[i].addEventListener('click',orderDown)
             orderUpBtn[i].addEventListener('click',orderUp)
         }
-    }
+}
 
     add_clickevent_order()
 
