@@ -108,7 +108,7 @@ include __DIR__ .'/__html_head.php';
                 <img id="r_img_img" class="my-2" alt="圖像不存在請重新上傳" width="600" height="300" src="dirname__/../../../the_wheel_uploads/<?=$row['r_img']?>"/>
             </div>
             
-            
+            <input type="number" min="0" name="r_l_num" id="r_l_num" style="display:none">
             <button type="submit" id="submit" class="btn bgc-green color-white">Submit</button>
         </form>
 
@@ -159,7 +159,7 @@ include __DIR__ .'/__html_head.php';
 <script>
     const info_bar = document.querySelector('#info_bar');
     const submit = document.querySelector('#submit');
-    let regexp=/^\d{1,3}D\s\d{1,2}H\s\d{1,2}M$|^\d{1,3}D\s\d{1,2}H$|^\d{1,3}D$|^\d{1,2}H\s\d{1,2}M$|^\d{1,2}H$|^\d{1,2}M$/;
+    let regexp=/^\d{1,3}天\d{1,2}時\d{1,2}分$|^\d{1,3}天\d{1,2}時$|^\d{1,3}天$|^\d{1,2}時\d{1,2}分$|^\d{1,2}時$|^\d{1,2}分$|\d{1,3}天\d{1,2}分$/;
     const f_reference = {};
     const fields=[
         'r_name', 
@@ -171,6 +171,7 @@ include __DIR__ .'/__html_head.php';
         'r_depart', 
         'r_arrive', 
         'r_img',
+        'r_l_num'
     ];
 
 
@@ -211,6 +212,7 @@ include __DIR__ .'/__html_head.php';
         
         
         if(isPassed){
+            document.querySelector('#r_l_num').value=document.getElementsByClassName('r_l_count').length
             console.log('isPassed')
             let form = new FormData(document.form1);
             submit.style.display='none';
@@ -223,10 +225,20 @@ include __DIR__ .'/__html_head.php';
             .then(obj=>{
                 // info_bar.style.display = 'block';
                 if(obj.success){
-                    swal.fire("", '路線修改成功', "success");
+                    swal({
+                        title: '路線修改成功',
+                        text: "",
+                        icon: "success",
+                        button: "確定",
+                    });
                     
                 }else{
-                    swal.fire("", obj.errMsg, "warning");
+                    swal({
+                        title: obj.errMsg,
+                        text: "",
+                        icon: "warning",
+                        button: "確定",
+                    });
                 }
             })
         };

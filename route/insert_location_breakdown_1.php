@@ -9,11 +9,10 @@
         let country=document.querySelector('#r_country');
         let area=document.querySelector('#r_area');
         test.insertAdjacentHTML('beforeend',`
-                            <div class="form-group location-group p-3 my-3" id="l_id${count}">
+                            <div class="form-group location-group p-3 my-3 r_l_count" id="l_id${count}">
                                 <input type="text"  name="r_sid[]" class="lr_sid" value="" style="display:none">
-                                <input type="text"  name="l_order[]" class="l_order" style="display:none">
                                 <button type="button" class="btn-danger l_delete" onclick="javascript:del(this.id)" id="${count}"><i class="fas fa-trash-alt"></i></button>
-                                <label for="r_name">地點名稱${count}</label>
+                                <label for="l_name">地點名稱${count}</label>
                                 <input type="text" class="form-control" name="l_name[]" id="l_name${count}" placeholder="地點名稱">
                                 <div class="row mt-3">
 
@@ -32,6 +31,7 @@
                                 </div>
                                 <label for="r_intro">描述</label>
                                 <textarea type="text" name="l_intro[]" id="l_intro" class="form-control" placeholder="描述"></textarea>
+                                <input class="lOrder" name="l_order[]">
                             </div>
                         
                     `);
@@ -57,12 +57,21 @@
             })
             
             document.querySelector(`#l_area${count}`).value=area.value;
+
+            reorder ()
     }
     function del(click_id){
         count--;
         // let l_delete = document.querySelector(`l_id${click_id}`)
         let l_delete = document.getElementById('l_id'+click_id)
         l_delete.parentNode.removeChild(l_delete);
+    }
+
+        function reorder (){
+        let lOrder=document.getElementsByClassName('lOrder')
+        for(i=0;i<lOrder.length;i++){
+            lOrder[i].value=i
+        }
     }
 
 

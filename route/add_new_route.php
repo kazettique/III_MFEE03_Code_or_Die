@@ -49,11 +49,11 @@ $page_name='add_new';
     }
 </style>
 
-<!-- --------------------------Main Form HTML Start------------------------------------------------------------------------- -->
-    <div class="container mt-5 d-flex flex-column align-items-center">
-         <div class="col-lg-12 d-flex flex-column align-items-center">
-
-                <form name="form1" method="post"  enctype="multipart/form-data" class="col-lg-9" id="form1">
+<!----------------------------Main Form HTML Start--------------------------------------------------------------------------->
+    <div class="container mt-5 d-flex flex-column align-items-center fluid">
+        <div class="d-flex w-100">
+            <div class="col-6 d-flex flex-column align-items-start">
+                <form name="form1" method="post"  enctype="multipart/form-data" class="w-100" id="form1">
                     <div class="form-group">
                         <label for="r_name">路線名稱</label>
                         <input type="text" class="form-control" name="r_name" id="r_name" aria-describedby="emailHelp" placeholder="路線名稱">
@@ -62,7 +62,7 @@ $page_name='add_new';
                     <div class="form-group">
                         <label for="r_time">預計時間</label>
                         <input type="text"  name="r_time" id="r_time"class="form-control"  placeholder="預計時間">
-                        <small id="timeHelp" class="form-text text-muted">請按照格式 *D *H *M可省略任意若時間過或短</small>
+                        <small id="timeHelp" class="form-text text-muted">請按照格式 *天 *時 *分 可省略任意部分</small>
                     </div>
                     <div class="form-group">
                         <label class="tagbtn btn bgc-green color-white">短途
@@ -114,25 +114,30 @@ $page_name='add_new';
                         </div>
                     </div>
                     <input type="text" name="r_time_added" id="r_time_added" style="display:none">
+                     <input type="number" min="0" name="r_l_num" id="r_l_num" style="display:none">
                 </form>
+                <button class="btn btn-primary m-3" onclick="addNewPlace()">Add Location</button>
+            </div>
+            <div class="col-6">
+
+                <form method="post" name="form2" id="form2" style="width:100%">
+                    <div id="test"></div>
+                </form>
+                <div id="info_bar2" class="alert alert-success" role="alert" style="display: none; margin-top:1rem"></div>
+            </div>
         </div>
-        <div>
-            <button class="btn btn-primary" onclick="addNewPlace()">Add Location</button>
-            <form method="post" name="form2" id="form2" style="width:100%">
-                <div id="test"></div>
-            </form>
-            <div id="info_bar2" class="alert alert-success" role="alert" style="display: none; margin-top:1rem"></div>
-        </div>
-                
-                <button type="submit" id="submit" class="btn btn-primary my-4"  onclick="checkform_route()">Submit</button>
-                <div id="info_bar" class="alert alert-success" role="alert" style="display: none; margin-top:1rem">
-                </div>
+
+
+        <div>        
+            <button type="submit" id="submit" class="btn btn-primary my-4"  onclick="checkform_route()">Submit</button>
+            <div id="info_bar" class="alert alert-success" role="alert" style="display: none; margin-top:1rem"></div>
+        </div>  
+
             
     </div>
 <!-- --------------------------Main Form HTML End-------------------------------------------------------------------------- -->
 
 
-    <div style="height:10rem"></div>
 
 <!-- --------------------------Preview Script Start-------------------------------------------------------------------------- -->
 
@@ -176,7 +181,8 @@ $page_name='add_new';
     const info_bar = document.querySelector('#info_bar');
     const info_bar2 = document.querySelector('#info_bar2');
     const submit = document.querySelector('#submit');
-    let regexp=/^\d{1,3}D\s\d{1,2}H\s\d{1,2}M$|^\d{1,3}D\s\d{1,2}H$|^\d{1,3}D$|^\d{1,2}H\s\d{1,2}M$|^\d{1,2}H$|^\d{1,2}M$/;
+    // let regexp=/^\d{1,3}天\d{1,2}時\d{1,2}分$|^\d{1,3}天\d{1,2}時$|^\d{1,3}天$|^\d{1,2}時\d{1,2}分$|^\d{1,2}時$|^\d{1,2}分$/;
+    let regexp=/^\d{1,3}天\d{1,2}時\d{1,2}分$|^\d{1,3}天\d{1,2}時$|^\d{1,3}天$|^\d{1,2}時\d{1,2}分$|^\d{1,2}時$|^\d{1,2}分$|\d{1,3}天\d{1,2}分$/;
     let rsid = 0;
     let lastSid=0;
     let country=[];
@@ -237,7 +243,7 @@ $page_name='add_new';
 
         if(isPassed){
             document.querySelector('#r_time_added').value=new Date().toGMTString();
-
+            document.querySelector('#r_l_num').value=document.getElementsByClassName('r_l_count').length
             let form = new FormData(document.form1);
 
             submit.style.display='none';

@@ -35,6 +35,7 @@ if(isset($_POST['r_name']) and !empty($rsid)){
     $r_depart=$_POST['r_depart'];
     $r_arrive=$_POST['r_arrive'];
     $r_intro=$_POST['r_intro'];
+    $r_l_num=$_POST['r_l_num'];
 
     $result['post']=$_POST;
 
@@ -110,7 +111,8 @@ if(isset($_POST['r_name']) and !empty($rsid)){
     `r_area`=?,
     `r_depart`=?,
     `r_arrive`=?,
-     `r_img`=? 
+     `r_img`=?, 
+     `r_l_num`=?
      WHERE `r_sid`=?;";
 
 
@@ -127,6 +129,7 @@ if(isset($_POST['r_name']) and !empty($rsid)){
             $r_depart,
             $r_arrive,
             $r_img,
+            $r_l_num,
             $rsid
 
         ]);

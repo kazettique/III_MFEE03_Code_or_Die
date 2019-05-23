@@ -77,7 +77,6 @@ $str2 = [];
 <script>
     ajax_after_update();
 
-    <?php include __DIR__ .'/tw.js';?>
     const c_start = "<?=$row["r_country"]?>";
     let all = <?=json_encode($str)?>;
     let all2 = <?=json_encode($str2)?>;
@@ -116,7 +115,7 @@ $str2 = [];
    
     function addNewPlace(){
         form_all_l.insertAdjacentHTML('beforeend',
-                        `<div class="form-group card location-group p-3">
+                        `<div class="form-group card location-group p-3 r_l_count">
                             <input type="text"  name="r_sid[]" id="r_sid" value="<?=$rsid?>" style="display:none">
                             <input type="text"  name="l_sid[]" value="NULL" style="display:none">
                             
@@ -281,7 +280,7 @@ $str2 = [];
             for(i=0;i<obj.length;i++){
                 arr_c.push(obj[i]['l_country'])
                 arr_a.push(obj[i]['l_area'])
-                str += `<div class="form-group card location-group p-3" id="l_id${obj[i]['l_sid']}">
+                str += `<div class="form-group card location-group p-3 r_l_count" id="l_id${obj[i]['l_sid']}">
                         <input type="text"  name="r_sid[]" id="r_sid" value="<?=$rsid?>" style="display:none">
                         <input type="text"  name="l_sid[]" value=${obj[i]['l_sid']} style="display:none">
                         <div class="edit-tool">
@@ -314,6 +313,7 @@ $str2 = [];
             }
             form_all_l.innerHTML=str;
             country_value(arr_c,arr_a)
+            reorder ()
             add_clickevent_order()
         })
     }
