@@ -226,7 +226,7 @@ include __DIR__ .'/__html_head.php';
                 // info_bar.style.display = 'block';
                 if(obj.success){
                     swal({
-                        title: '路線修改成功',
+                        title: "路線修改成功",
                         text: "",
                         icon: "success",
                         button: "確定",
@@ -239,8 +239,10 @@ include __DIR__ .'/__html_head.php';
                         icon: "warning",
                         button: "確定",
                     });
+                    return
                 }
             })
+            .then(a=>update_done())
         };
   
 
