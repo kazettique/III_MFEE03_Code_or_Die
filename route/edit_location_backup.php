@@ -55,6 +55,21 @@ $str2 = [];
         background-color: transparent;
         color:red;
     }
+
+    .working{
+        background-color:#ffe5e5;
+        border:1px solid red;
+    }
+
+    #test{
+        border:1px solid white;
+    }
+    button.update-btn{
+        display:none;
+    }
+    .updating{
+        color:red;
+    }
 </style>
 
 
@@ -63,38 +78,75 @@ $str2 = [];
     <div style="width:100%">
         
         <div class="my-4" id="main_l">
-            <form name="form_all_l" id="form_all_l"></form>
-            <!-- <button type="button" class="btn btn-primary mt-4" id="complete" onclick="update_done()">Complete</button> -->
+            <?php
+                function mainl() {
+                global $row2;
+                for($i=0;$i<count($row2);$i++){ 
+                    $k=$i+1;
+                    global $str, $str2;
+                    $str[]=$row2[$i]['l_country'];
+                    $str2[]=$row2[$i]['l_area'];?>
+                    
+                    <form class="form-group card location-group p-3" id="l_id<?=$row2[$i]['l_sid']?>" name="form<?=$row2[$i]['l_sid']?>">
+                        <input type="text"  name="l_sid[]" value=<?=$row2[$i]['l_sid']?> style="display:none">
+                        <div class="edit-tool">
+                            <a class="icon mx-3" href="javascript:update_l('<?=$row2[$i]['l_sid']?>')" id="update<?=$row2[$i]['l_sid']?>"><i class="fas fa-edit"></i></a>
+                            <a class="icon mx-3" href="javascript:delete_l(<?=$row2[$i]['l_sid']?>)" ><i class="fas fa-trash-alt"></i></a>
+                        </div>
+                        <div>
+                        <button class="btn btn-success orderUpBtn">up</button>
+                        <button class="btn btn-success orderDownBtn">down</button>
+                        </div>
+                        <label for="l_name">地點名稱<?=$k?></label>
+                        <input type="text" class="form-control <?=$row2[$i]['l_sid']?>" name="l_name[]" id="l_name${count}" value="<?=$row2[$i]['l_name']?>" disabled="true">
+                        
+                        <div class="row mt-3">
+                            <div class="col-sm-6">
+                                <label for="l_country">國家</label>
+                                <select class="form-short <?=$row2[$i]['l_sid']?> lc" name="l_country[]" id="l_country<?=$row2[$i]['l_sid']?>" disabled="true">
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="l_area">地區</label>
+                                <select class="form-short <?=$row2[$i]['l_sid']?> la" name="l_area[]" id="l_area<?=$row2[$i]['l_sid']?>" disabled="true">
+                                </select>
+                            </div>  
+                        </div>
+
+                        <label for="l_intro" class="mt-3">描述</label>
+                        <textarea type="text" name="l_intro[]" id="l_intro" class="form-control <?=$row2[$i]['l_sid']?>" disabled="true"><?=$row2[$i]['l_intro']?></textarea>
+                        <button type="button" class="btn btn-primary mt-4 update-btn" id="complete<?=$row2[$i]['l_sid']?>" onclick="update_done(this.id)">Complete</button>
+                        <input class="lOrder" value="<?=$row2[$i]['l_order']?>">
+                    </form>
+            <?php }}; mainl()?>
+
         </div>
         <button class="btn bgc-green color-white my-5 d-block" type="button" onclick="addNewPlace()">Add Location</button>
-        <!-- <form id="test" method="post" name="form2"></form>  -->
-        <!-- <button type="submit" class="btn bgc-green color-white mt-5"onclick="return checkform_location()">Submit</button> -->
+        <form id="test" method="post" name="form2"></form> 
+        <button type="submit" class="btn bgc-green color-white mt-5"onclick="return checkform_location()">Submit</button>
     </div>
     <div id="info_bar2" class="alert alert-success" role="alert" style="display: none; margin-top:1rem"></div>
 </div>
 <div style="height:10rem"></div>
 <!-- --------------------------------------------------need to work on cross country start------------------------------ -->
 <script>
-    ajax_after_update();
-
-    const c_start = "<?=$row["r_country"]?>";
+    <?php include __DIR__ .'/tw.js';?>
+    
+    lc=document.getElementsByClassName('lc');
     let all = <?=json_encode($str)?>;
     let all2 = <?=json_encode($str2)?>;
-    function country_value(all,all2){
-        lc=document.getElementsByClassName('lc');
-        for(let i=0;i<lc.length;i++){
-            country=all[i];
-            area = all2[i]; 
-            for(k in database){
-            $('.lc').eq(i).append('<option value="'+k+'">'+k+'</option>')
-            };
-            for(k in database[country]){
-                $('.la').eq(i).append('<option value="'+database[country][k]+'">'+database[country][k]+'</option>');
-            }
-            lc[i].value = country;
-            $('.la').eq(i).val(area);
-    }}
-    country_value(all,all2);
+    for(let i=0;i<lc.length;i++){
+        country=all[i];
+        area = all2[i]; 
+        for(k in database){
+        $('.lc').eq(i).append('<option value="'+k+'">'+k+'</option>')
+        };
+        for(k in database[country]){
+            $('.la').eq(i).append('<option value="'+database[country][k]+'">'+database[country][k]+'</option>');
+        }
+        lc[i].value = country;
+         $('.la').eq(i).val(area);
+    }
 
     $('.lc').change(function(){
         let l_a=$(this).parent().siblings().children().eq(1);
@@ -106,27 +158,25 @@ $str2 = [];
     })
 
 
-    const form_all_l = document.querySelector('#form_all_l');
+    const test = document.querySelector('#test');
     const info_bar2 = document.querySelector('#info_bar2');
     const info_bar3 = document.querySelector('#info_bar3');
     let main_html=document.getElementById('main_l');
-    // let currentlc='';
-    // let currentla='';
+    let count=0;
+    let currentlc='';
+    let currentla='';
    
     function addNewPlace(){
-        form_all_l.insertAdjacentHTML('beforeend',
-                        `<div class="form-group card location-group p-3 r_l_count">
+        count++;
+        test.insertAdjacentHTML('beforeend',
+                        `<div class="form-group card location-group p-3" id="l_id${count}">
                             <input type="text"  name="r_sid[]" id="r_sid" value="<?=$rsid?>" style="display:none">
-                            <input type="text"  name="l_sid[]" value="NULL" style="display:none">
                             
-                            <button type="button" class="l_delete btn mx-3" onclick="del(this.id)"><i class="fas fa-trash-alt"></i></button>
+                            <button type="button" class="l_delete btn mx-3" onclick="del(this.id)" id="${count}"><i class="fas fa-trash-alt"></i></button>
                             
-                            <div>
-                                <button class="btn btn-success orderUpBtn">up</button>
-                                <button class="btn btn-success orderDownBtn">down</button>
-                            </div>
-                            <label for="l_name">地點名稱${form_all_l.children.length+1}</label>
-                            <input type="text" class="form-control" name="l_name[]">
+
+                            <label for="l_name">地點名稱</label>
+                            <input type="text" class="form-control" name="l_name[]" id="l_name${count}">
                             
                             <div class="row mt-3">
                                 <div class="col-sm-6">
@@ -144,20 +194,16 @@ $str2 = [];
 
                             <label for="l_intro" class="mt-3">描述</label>
                             <textarea type="text" name="l_intro[]" id="l_intro" class="form-control"></textarea>
-                            <input class="lOrder" name="l_order[]" value="${form_all_l.children.length}">
                         </div>
                     
                 `);
-                add_clickevent_order()
-                let lcn=form_all_l.lastElementChild.querySelector('.lcn')
-                for(k in database){
-                lcn.insertAdjacentHTML('beforeend','<option value="'+k+'">'+k+'</option>')
-                };
-                lcn.value = c_start;
 
-                lan = lcn.parentElement.nextElementSibling.querySelector('.lan');
-                for(k in database[c_start]){
-                    lan.insertAdjacentHTML('beforeend','<option value="'+database[c_start][k]+'">'+database[c_start][k]+'</option>');
+                let lcn=document.getElementsByClassName('lcn');
+                for(let i=0;i<lcn.length;i++){
+                    for(k in database){
+                    $('.lcn').eq(i).append('<option value="'+k+'">'+k+'</option>')
+                    };
+                    console.log($('.lcn'))
                 }
 
                 $('.lcn').change(function(){
@@ -169,14 +215,14 @@ $str2 = [];
                     }
                 })
 
-                // for(let i=0;i<lcn.length;i++){
-                //     lcn[i].value =all;
-                // }
+                for(let i=0;i<lcn.length;i++){
+                    lcn[i].value =all;
+                }
                 
     }
 
-
     function del(click_id){
+        count--;
         // let l_delete = document.querySelector(`l_id${click_id}`)
         let l_delete = document.getElementById('l_id'+click_id)
         l_delete.parentNode.removeChild(l_delete);
@@ -222,21 +268,62 @@ $str2 = [];
             info_bar2.innerHTML = obj['errMsg'];
             if(obj['success']){
                 info_bar2.className = 'alert alert-success';
-                reorder()
             }else{
                 info_bar2.className = 'alert alert-danger';
             }
             info_bar2.style.display = 'block';
 
-            // location.reload();
-            ajax_after_update();
-            reorder()
+            location.reload();
         })
     };
 
-    function update_done(thisid){
+    let update_l = function (update_lsid){
+        const lsid=document.getElementsByClassName(update_lsid);
         
-        let formX = new FormData(form_all_l);
+        for(i=0;i<lsid.length;i++){
+           lsid[i].disabled=false;
+        }
+       const l_id = document.getElementById(`l_id${update_lsid}`);
+       const l_btn= document.getElementById(`complete${update_lsid}`);
+       const l_update= document.getElementById(`update${update_lsid}`);
+       const l_c= document.getElementById(`l_country${update_lsid}`);
+       const l_a= document.getElementById(`l_area${update_lsid}`);
+       
+       if(currentlc==''){
+        currentlc=l_c.value;
+        currentla=l_a.value;
+       }
+       
+        l_id.classList.toggle('working');
+        l_btn.classList.toggle('update-btn');
+
+       if(l_id.classList.contains('working')){
+             l_update.classList.add('updating')
+             console.log('yes')
+       }else{
+            l_update.classList.remove('updating')
+            if(currentlc!==''){
+                for(i=0;i<lsid.length;i++){
+                    lsid[i].disabled=true;
+                }
+                l_c.value=currentlc;
+                let str=''
+                for(k in database[currentlc]){
+                    str +='<option value="'+database[currentlc][k]+'">'+database[currentlc][k]+'</option>';
+                }
+                l_a.innerHTML=str;
+                l_a.value=currentla;
+            }
+            
+       }
+
+    };
+
+    function update_done(thisid){
+        const formname = document.querySelector(`#${thisid}`).parentElement;
+        const update = formname.children[1].children[0]
+        console.log(update)
+        let formX = new FormData(formname);
 
             fetch('./update_location_API.php',{
                 method: 'POST',
@@ -247,16 +334,22 @@ $str2 = [];
                 // info_bar3.style.display = 'block';
                 if(obj.success){
                     swal({
-                        title: "修改成功",
+                        title: "地點修改成功",
                         text: "",
                         icon: "success",
                         button: "確定",
                     });
-                    
-                    setTimeout(() => {
-                        // info_bar3.style.display = 'none';
-                        ajax_after_update();
-                    }, 2000);
+                    // swal.fire("", '地點修改成功', "success");
+                    // info_bar3.className = 'alert alert-success';
+                    // info_bar3.innerHTML = '地點修改成功';
+                    formname.classList.remove("working")
+                    update.classList.remove("updating")
+                    document.querySelector(`#${thisid}`).classList.toggle('update-btn');
+                    // setTimeout(() => {
+                    //     // info_bar3.style.display = 'none';
+                    //     // main_l();
+                    //     location.reload();
+                    // }, 2000);
                 }else{
                     swal({
                         title: obj.errMsg,
@@ -270,67 +363,9 @@ $str2 = [];
             })
 
     }
-
-    function ajax_after_update(){
-        fetch('./edit_location_display_API.php?r_sid=<?=$rsid?>')
-        .then(res=>res.json())
-        .then(obj=>{
-            obj.sort((a, b) => (a.l_order > b.l_order) ? 1 : -1);
-            let str="";
-            let arr_c=[];
-            let arr_a=[];
-            for(i=0;i<obj.length;i++){
-                arr_c.push(obj[i]['l_country'])
-                arr_a.push(obj[i]['l_area'])
-                str += `<div class="form-group card location-group p-3 r_l_count" id="l_id${obj[i]['l_sid']}">
-                        <input type="text"  name="r_sid[]" id="r_sid" value="<?=$rsid?>" style="display:none">
-                        <input type="text"  name="l_sid[]" value=${obj[i]['l_sid']} style="display:none">
-                        <div class="edit-tool">
-                            <a class="icon mx-3" href="javascript:delete_l(${obj[i]['l_sid']})" ><i class="fas fa-trash-alt"></i></a>
-                        </div>
-                        <div>
-                        <button class="btn btn-success orderUpBtn" onclick="orderUp()">up</button>
-                        <button class="btn btn-success orderDownBtn" onclick="orderDown()">down</button>
-                        </div>
-                        <label for="l_name">地點名稱${i+1}</label>
-                        <input type="text" class="form-control ${obj[i]['l_sid']}" name="l_name[]" value="${obj[i]['l_name']}">
-                        
-                        <div class="row mt-3">
-                            <div class="col-sm-6">
-                                <label for="l_country">國家</label>
-                                <select class="form-short ${obj[i]['l_sid']} lc" name="l_country[]" id="l_country${obj[i]['l_sid']}">
-                                </select>
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="l_area">地區</label>
-                                <select class="form-short ${obj[i]['l_sid']} la" name="l_area[]" id="l_area${obj[i]['l_sid']}">
-                                </select>
-                            </div>  
-                        </div>
-
-                        <label for="l_intro" class="mt-3">描述</label>
-                        <textarea type="text" name="l_intro[]" id="l_intro" class="form-control ${obj[i]['l_sid']}">${obj[i]['l_intro']}</textarea>
-                        <input class="lOrder" name="l_order[]" value="${obj[i]['l_order']}">
-                </div>`
-            }
-            form_all_l.innerHTML=str;
-            country_value(arr_c,arr_a)
-            reorder ()
-            add_clickevent_order()
-            reorder()
-        })
-    }
 //  ------------------------------order ----------------------------------------
-function add_clickevent_order(){
-        let orderDownBtn = document.getElementsByClassName('orderDownBtn');
-        let orderUpBtn = document.getElementsByClassName('orderUpBtn');
-        for(i=0; i<orderDownBtn.length; i++){
-            orderDownBtn[i].addEventListener('click',orderDown)
-            orderUpBtn[i].addEventListener('click',orderUp)
-        }
-}
-
-    add_clickevent_order()
+    let orderDownBtn = document.getElementsByClassName('orderDownBtn');
+    let orderUpBtn = document.getElementsByClassName('orderUpBtn');
 
     function orderUp(event){
         event.preventDefault()
@@ -342,7 +377,10 @@ function add_clickevent_order(){
             item.previousElementSibling
           );
         }
-        reorder()
+        let lOrder=document.getElementsByClassName('lOrder')
+        for(i=0;i<lOrder.length;i++){
+            lOrder[i].value=i
+        }
     }
 
 
@@ -353,17 +391,17 @@ function add_clickevent_order(){
         if(item.nextElementSibling){
              item.parentNode.insertBefore(item.nextElementSibling, item);
         }
-        reorder()
-    }
-    
-    function reorder (){
         let lOrder=document.getElementsByClassName('lOrder')
         for(i=0;i<lOrder.length;i++){
             lOrder[i].value=i
         }
     }
     
-
+    
+    for(i=0; i<orderDownBtn.length; i++){
+        orderDownBtn[i].addEventListener('click',orderDown)
+        orderUpBtn[i].addEventListener('click',orderUp)
+    }
 
 </script>
 

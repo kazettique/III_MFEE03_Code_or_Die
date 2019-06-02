@@ -3,4 +3,8 @@
 
 \.idea/
 
+__connect_db.php
+
+login/__connect_db.php
+
 course/xCheckToday\.html

@@ -24,6 +24,7 @@ for($i=0;$i<$num;$i++){
      $lrsid =isset($_POST['r_sid'][$i])?$_POST['r_sid'][$i]:'';
      $lcountry =isset($_POST['l_country'][$i])?$_POST['l_country'][$i]:'';
      $larea =isset($_POST['l_area'][$i])?$_POST['l_area'][$i]:'';
+     $lorder =isset($_POST['l_order'][$i])?$_POST['l_order'][$i]:'';
 
      if(empty($lrsid)){
         $result['errCode']=460;
@@ -39,12 +40,13 @@ for($i=0;$i<$num;$i++){
         exit;
      }
 
-     $question.='(?,?,?,?,?),';
+     $question.='(?,?,?,?,?,?),';
      array_push($values, $k);
      array_push($values, $s);
      array_push($values, $lrsid);
      array_push($values, $lcountry);
      array_push($values, $larea);
+     array_push($values, $lorder);
     // $values .= "'$k','$s',";
     
 }
@@ -59,7 +61,7 @@ $question = substr($question,0,-1);
 
 
     $sql = "INSERT INTO`route_location`(
-            `l_name`, `l_intro`,`r_sid`,`l_country`,`l_area`) 
+            `l_name`, `l_intro`,`r_sid`,`l_country`,`l_area`,`l_order`) 
     VALUES $question;";
    
    try{

@@ -6,10 +6,18 @@
 <link rel="stylesheet" href="../resources/css/utilities.css">
 <link rel="stylesheet" href="../resources/css/backend_main.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+<script src="../resources/js/underscore.js"></script>
+<script src="../resources/js/jquery-3.3.1.js"></script>
+<script src="../resources/js/jquery.twzipcode.min.js"></script>
+<script src="../resources/bootstrap_customised/js/bootstrap.bundle.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script> -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style>
-    body {
+    /* body {
         background: url("./back.png") center center no-repeat;
-    }
+    } */
 </style>
 <div id="wrap" class="d-flex justify-content-between">
     <div class="p-0 sidebar-wrap transition">
@@ -34,7 +42,7 @@
                 <a href="" class="d-flex align-items-center transition"><i class="material-icons">home</i></svg>概況</a>
                 <a href="/III_MFEE03_Code_or_Die/member/data_list2FOR0408.php" class="d-flex align-items-center transition"><i class="material-icons">group</i></svg>會員管理</a>
                 <a href="/III_MFEE03_Code_or_Die/course/data_list.php" class="d-flex align-items-center transition"><i class="material-icons">school</i>課程管理</a>
-                <a href="/III_MFEE03_Code_or_Die/program-test/event_list.php" class="d-flex align-items-center transition"><i class="material-icons">today</i>活動管理</a>
+                <a href="/III_MFEE03_Code_or_Die/program/event_list.php" class="d-flex align-items-center transition"><i class="material-icons">today</i>活動管理</a>
                 <a href="/III_MFEE03_Code_or_Die/route/display.php" class="d-flex align-items-center transition"><i class="material-icons">place</i>路線管理</a>
                 <a href="/III_MFEE03_Code_or_Die/product/p_data_list2.php" class="d-flex align-items-center transition"><i class="material-icons">playlist_add</i>商品管理</a>
                 <a href="/III_MFEE03_Code_or_Die/post/listtest.php" class="d-flex align-items-center transition"><i class="material-icons">edit</i>文章管理</a>
@@ -52,14 +60,7 @@
 
     </div>
 
-    <script src="../resources/js/underscore.js"></script>
-    <script src="../resources/js/jquery-3.3.1.js"></script>
-    <script src="../resources/js/jquery.twzipcode.min.js"></script>
-    <script src="../resources/bootstrap_customised/js/bootstrap.bundle.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script>
         // (function(){
         //     $('.sidebar').toggleClass('off')

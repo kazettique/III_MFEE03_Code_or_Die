@@ -19,6 +19,7 @@ if(isset($_POST['r_name'])){
     $r_arrive=$_POST['r_arrive'];
     $r_intro=$_POST['r_intro'];
     $r_time_added=$_POST['r_time_added'];
+    $r_l_num=$_POST['r_l_num'];
     $r_img=isset($_POST['r_img'])?$_POST['r_img']:'';
     
 
@@ -61,8 +62,8 @@ if(isset($_POST['r_name'])){
 
     $sql = "INSERT INTO`route`(
             `r_name`, `r_intro`, `r_time`, `r_tag`, `r_country`, 
-            `r_area`, `r_depart`, `r_arrive`, `r_img`,`r_time_added`) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            `r_area`, `r_depart`, `r_arrive`, `r_img`,`r_time_added`, `r_l_num`) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
    
    try{
        $stmt=$pdo->prepare($sql);
@@ -77,6 +78,7 @@ if(isset($_POST['r_name'])){
                 $r_arrive, 
                 $r_img,
                 $r_time_added,
+                $r_l_num
             ]);
 
         if($stmt->rowCount()==1){

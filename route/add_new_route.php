@@ -3,7 +3,7 @@ include __DIR__ .'/__html_head.php';
 include  '../sidebar/__nav.php';
 $page_name='add_new';
 ?>
-
+<!-- <script>swal.fire("", '路線修改成功', "success");</script> -->
 <style>
     .checkform{
         border-color:red;
@@ -23,13 +23,37 @@ $page_name='add_new';
     background-color:#1fbeac;
     box-shadow:0px 0px 3px #2addc7;
 }
+    .location-group{
+        position:relative;
+    }
+
+    .l_delete{
+        position:absolute;
+        top:.3rem;
+        right:.5rem;
+    }
+
+    .form-short{
+    width:100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
 </style>
 
-<!-- --------------------------Main Form HTML Start------------------------------------------------------------------------- -->
-    <div class="container mt-5 d-flex flex-column align-items-center">
-         <div class="col-lg-12 d-flex flex-column align-items-center">
-
-                <form name="form1" method="post"  enctype="multipart/form-data" class="col-lg-9" id="form1">
+<!----------------------------Main Form HTML Start--------------------------------------------------------------------------->
+    <div class="container mt-5 d-flex flex-column align-items-center fluid">
+        <div class="d-flex w-100">
+            <div class="col-6 d-flex flex-column align-items-start">
+                <form name="form1" method="post"  enctype="multipart/form-data" class="w-100" id="form1">
                     <div class="form-group">
                         <label for="r_name">路線名稱</label>
                         <input type="text" class="form-control" name="r_name" id="r_name" aria-describedby="emailHelp" placeholder="路線名稱">
@@ -38,7 +62,7 @@ $page_name='add_new';
                     <div class="form-group">
                         <label for="r_time">預計時間</label>
                         <input type="text"  name="r_time" id="r_time"class="form-control"  placeholder="預計時間">
-                        <small id="timeHelp" class="form-text text-muted">請按照格式 *D *H *M可省略任意若時間過或短</small>
+                        <small id="timeHelp" class="form-text text-muted">請按照格式 *天 *時 *分 可省略任意部分</small>
                     </div>
                     <div class="form-group">
                         <label class="tagbtn btn bgc-green color-white">短途
@@ -85,27 +109,40 @@ $page_name='add_new';
                         <input type="file" name="r_img" id="r_img" class="form-control" onchange="preview()">
                     </div>
                     <div>
-                        <div style="overflow:hidden; width:600px; height:300px">
-                            <img id="r_img_img" class="my-2" alt="your image" style="display:none;width:100%;height:100%;object-fit:cover"/>
+                        <div style="overflow:hidden; width:600px; height:300px" class="d-none">
+                            <img id="r_img_img" class="my-2" alt="your image" style="width:100%;height:100%;object-fit:cover"/>
                         </div>
                     </div>
                     <input type="text" name="r_time_added" id="r_time_added" style="display:none">
+                     <input type="number" min="0" name="r_l_num" id="r_l_num" style="display:none">
                 </form>
+                <button class="btn btn-primary m-3" onclick="addNewPlace()">Add Location</button>
+            </div>
+            <div class="col-6">
+
+                <form method="post" name="form2" id="form2" style="width:100%">
+                    <div id="test"></div>
+                </form>
+                <div id="info_bar2" class="alert alert-success" role="alert" style="display: none; margin-top:1rem"></div>
+            </div>
         </div>
-                <?php include __DIR__.'/insert_location_breakdown_1.php';?>
-                <button type="submit" id="submit" class="btn btn-primary my-4"  onclick="checkform_route()">Submit</button>
-                <div id="info_bar" class="alert alert-success" role="alert" style="display: none; margin-top:1rem">
-                </div>
+
+
+        <div>        
+            <button type="submit" id="submit" class="btn btn-primary my-4"  onclick="checkform_route()">Submit</button>
+            <div id="info_bar" class="alert alert-success" role="alert" style="display: none; margin-top:1rem"></div>
+        </div>  
+
             
     </div>
 <!-- --------------------------Main Form HTML End-------------------------------------------------------------------------- -->
 
 
-    <div style="height:10rem"></div>
 
 <!-- --------------------------Preview Script Start-------------------------------------------------------------------------- -->
+
 <script>
-    <? include __DIR__ .'/tw.js';?>
+    <?php include __DIR__ .'/tw.js';?>
 
     for(i in database){
         $('#r_country').append('<option value="'+i+'">'+i+'</option>')
@@ -121,6 +158,7 @@ $page_name='add_new';
     
     function preview(){
         rimg_img=document.getElementById('r_img_img');
+        rimg_img.parentElement.classList.toggle('d-none');
         document.getElementById('r_img_img').src = window.URL.createObjectURL(r_img.files[0]);
         document.getElementById('r_img_img').style.display = 'inline';
     }
@@ -135,15 +173,20 @@ $page_name='add_new';
 <!-- --------------------------Preview Script End-------------------------------------------------------------------------- -->
 
 <!-- --------------------------Main Script Start-------------------------------------------------------------------------- -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+
 <script>
     const info_bar = document.querySelector('#info_bar');
     const info_bar2 = document.querySelector('#info_bar2');
     const submit = document.querySelector('#submit');
-    let regexp=/^\d{1,3}D\s\d{1,2}H\s\d{1,2}M$|^\d{1,3}D\s\d{1,2}H$|^\d{1,3}D$|^\d{1,2}H\s\d{1,2}M$|^\d{1,2}H$|^\d{1,2}M$/;
+    // let regexp=/^\d{1,3}天\d{1,2}時\d{1,2}分$|^\d{1,3}天\d{1,2}時$|^\d{1,3}天$|^\d{1,2}時\d{1,2}分$|^\d{1,2}時$|^\d{1,2}分$/;
+    let regexp=/^\d{1,3}天\d{1,2}時\d{1,2}分$|^\d{1,3}天\d{1,2}時$|^\d{1,3}天$|^\d{1,2}時\d{1,2}分$|^\d{1,2}時$|^\d{1,2}分$|\d{1,3}天\d{1,2}分$/;
     let rsid = 0;
     let lastSid=0;
-    let country='';
-    let area='';
+    let country=[];
+    let area=[];
     const f_reference = {};
     const fields=[
         'r_name', 
@@ -157,12 +200,9 @@ $page_name='add_new';
         'r_img',
     ];
 
-    
-    
-    
+
     
     function checkform_route (){
-        console.log('11aaaaaa')
         $('#timeHelp').addClass('text-muted');
         $('#form1 input').removeClass('checkform');
         $('#form1 select').removeClass('checkform');
@@ -186,7 +226,6 @@ $page_name='add_new';
             document.querySelector('#nameHelp').innerHTML = '請為本路線命名';
             isPassed = false;
         }
-        // let matchresult = f_reference['r_time'].match('^\d{1,3}D\s\d{1,2}H\s\d{1,2}M$|^\d{1,3}D\s\d{1,2}H$|^\d{1,3}D$|^\d{1,2}H\s\d{1,2}M$|^\d{1,2}H$|^\d{1,2}M$');
         
         if(f_reference['r_time'].match(regexp)==null|| f_reference['r_time']=='' ){
             console.log('no')
@@ -204,7 +243,7 @@ $page_name='add_new';
 
         if(isPassed){
             document.querySelector('#r_time_added').value=new Date().toGMTString();
-
+            document.querySelector('#r_l_num').value=document.getElementsByClassName('r_l_count').length
             let form = new FormData(document.form1);
 
             submit.style.display='none';
@@ -215,21 +254,46 @@ $page_name='add_new';
             })
             .then(res=>res.json())
             .then(obj=>{
-                info_bar.style.display = 'block';
+                // info_bar.style.display = 'block';
                 if(obj.success){
-                    // rsid=obj.post.r_sid;
-                    info_bar.className = 'alert alert-success';
-                    info_bar.innerHTML = '路線新增成功';
+                    swal({
+                            title: "路線新增成功",
+                            text: "",
+                            icon: "success",
+                            button: "確定!",
+                        });
+                    // swal.fire("", '路線新增成功', "success");
+                    // info_bar.className = 'alert alert-success';
+                    // info_bar.innerHTML = '路線新增成功';
                     lastSid=obj.last_sid;
-                    country=obj.post.r_country;
-                    area=obj.post.r_area;
+
+                        const fieldC = document.getElementsByClassName('l_country')
+                        const fieldA = document.getElementsByClassName('l_area')
+                        console.log('fieldC :'+ fieldC.length)
+                        console.log(fieldC)
+                        for(i=0;i<fieldC.length;i++){
+                            country.push(fieldC[i].value)
+                        }
+                        for(i=0;i<fieldA.length;i++){
+                            area.push(fieldA[i].value)
+                        }
+                        console.log(country)
+                        console.log(area)
+
+
                 }else{
+                    swal({
+                            title: "路線新增失敗",
+                            text: "",
+                            icon: "warning",
+                            button: "確定!",
+                        });
+                    // swal.fire("", obj.errMsg, "warning");
                     info_bar.className = 'alert alert-danger';
-                    info_bar.innerHTML = obj.errMsg;
+                    info_bar.innerHTML = obj.errMsg;                   
                 }})
             .then(xx=>{
-                if(!document.getElementById('test').childNodes.length === 0){
-                     
+                if(document.getElementById('test').childNodes.length !== 0){
                         <?php include __DIR__.'/insert_location_breakdown_2.php';?>
                         
                 }
@@ -244,7 +308,7 @@ $page_name='add_new';
         return false;
     }
 </script>
-
+<?php include __DIR__.'/insert_location_breakdown_1.php';?>
 
 
 
