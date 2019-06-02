@@ -202,9 +202,9 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="m_score">評價</label>
-                            <h4><?= $row['m_score'] ?></h4>
+                            <h4><?= $row['m_score'] ?></h4> -->
 
                             <!-- <input type="radio" id="s-option" name="m_score" value=0 checked="checked">
                     <label for="s-option">普普通通</label>
@@ -217,7 +217,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                     <label for="t-option"><i class="fas fa-thumbs-down"></i></label>
 
                     <small id="m_birthdayHelp" class="form-text text-muted"></small> -->
-                        </div>
+                        <!-- </div> -->
 
                         <div class="form-group">
                             <label for="m_active">帳號狀態</label>

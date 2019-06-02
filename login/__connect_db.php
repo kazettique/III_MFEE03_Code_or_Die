@@ -1,9 +1,9 @@
 <?php
 
-$db_host = "192.168.27.7";
+$db_host = "localhost";
 $db_name = "the_wheel";
 $db_user = "clifford";
-$db_pass = "a0953830559";
+$db_pass = "12345";
 
 try {
     $pdo = new PDO("mysql:host={$db_host};dbname={$db_name}", $db_user, $db_pass, null);
