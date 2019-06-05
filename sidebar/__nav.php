@@ -15,9 +15,9 @@
 <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script> -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style>
-    /* body {
+    body {
         background: url("./back.png") center center no-repeat;
-    } */
+    }
 </style>
 <div id="wrap" class="d-flex justify-content-between">
     <div class="p-0 sidebar-wrap transition">
